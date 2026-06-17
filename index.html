@@ -311,4 +311,263 @@
       </div>
     </div>
   </div>
-</sec
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="padding-top:0">
+  <div class="section-tag" id="test-tag">// Community</div>
+  <h2 class="section-title" id="test-title" style="margin-bottom:28px;">What Traders Say</h2>
+  <div class="testimonials">
+    <div class="tcard">
+      <div class="tcard-quote" id="t1q">"Made 18% profit in the first month with Pavan bhai's signals. SMC concepts are now clear to me."</div>
+      <div class="tcard-meta"><div class="tcard-avatar">R</div><div><div class="tcard-name">Rahul M.</div><div class="tcard-city">Pune, India</div></div></div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-quote" id="t2q">"Explanation in my language — what could be better. Trading on Binance fearlessly now."</div>
+      <div class="tcard-meta"><div class="tcard-avatar">S</div><div><div class="tcard-name">Suresh K.</div><div class="tcard-city">Nagpur, India</div></div></div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-quote" id="t3q">"I thought crypto was very difficult. Pavan bhai's community made everything easy."</div>
+      <div class="tcard-meta"><div class="tcard-avatar">P</div><div><div class="tcard-name">Priya D.</div><div class="tcard-city">Mumbai, India</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="lang-section">
+  <div class="section-tag">// Global Community</div>
+  <h2 class="section-title" id="lang-title" style="margin-bottom:8px;">We Speak<br/>Your Language</h2>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:0" id="lang-sub">Click any language to switch</p>
+  <div class="lang-grid">
+    <div class="lang-card" onclick="setLang('hi')"><div class="lang-flag">🇮🇳</div><div class="lang-name">हिंदी</div><div class="lang-native">Hindi</div></div>
+    <div class="lang-card" onclick="setLang('en')"><div class="lang-flag">🇬🇧</div><div class="lang-name">English</div><div class="lang-native">Global</div></div>
+    <div class="lang-card" onclick="setLang('mr')"><div class="lang-flag">🇮🇳</div><div class="lang-name">मराठी</div><div class="lang-native">Marathi</div></div>
+    <div class="lang-card" onclick="setLang('ar')"><div class="lang-flag">🇸🇦</div><div class="lang-name">العربية</div><div class="lang-native">Arabic</div></div>
+    <div class="lang-card" onclick="setLang('es')"><div class="lang-flag">🇪🇸</div><div class="lang-name">Español</div><div class="lang-native">Spanish</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 id="cta-h2">Start Today.<br/>Why Wait?</h2>
+  <p id="cta-p">Free account · No hidden charges · Expert guidance</p>
+  <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_009BQG4BOM" target="_blank" rel="noopener" class="cta-btn" id="cta-btn">🚀 Join Binance Now</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 GlobalTraderPavan · <a href="https://t.me/GlobalTraderPavan" target="_blank">Telegram</a> · <span id="footer-disc">Crypto trading involves risk. Invest wisely.</span></p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/918956681474?text=🙏%20नमस्ते!%20Free%20Crypto%20Signals%20के%20बारे%20में%20जानना%20है।" target="_blank" class="wa-float" title="WhatsApp करो">💬</a>
+
+<!-- FLOATING TG -->
+<a href="https://t.me/GlobalTraderPavan" target="_blank" class="tg-float" id="tg-float">✈ Free Signals</a>
+
+<script>
+// ── TRANSLATIONS ──
+const T = {
+  hi: {
+    navCta: "Binance Join करो ↗",
+    eyebrow: "Crypto Trading · India",
+    h1: "पहला Trade.<br/>",
+    accent: "पहला Profit.",
+    sub: "World's #1 exchange Binance पर join करो — expert signals, smart analysis, और शुरुआत से सीखो।",
+    btnP: "🚀 Binance पर Free Account बनाओ",
+    btnS: "📲 Telegram Channel Join करो",
+    stat1: "Users", stat2: "Account Fees", stat3: "Daily Signals",
+    featTag: "// क्यों हमारे साथ", featTitle: "Smart Trading का<br/>सही तरीका",
+    f1t: "Daily Free Signals", f1d: "BTC, ETH, और altcoins के लिए रोज़ entry, target, और stop-loss के साथ signals।",
+    f2t: "Smart Money Concepts", f2d: "Institutional trading methods — BOS, CHoCH, liquidity zones — simple Hindi में।",
+    f3t: "Binance — 100% Secure", f3d: "World's most trusted exchange, SAFU fund protection, और industry-best security।",
+    f4t: "5 भाषाओं में Support", f4d: "Hindi, English, Marathi, Arabic, Spanish — भाषा की बाधा के बिना trading करो।",
+    sigTag: "// Live Signal Preview", sigTitle: "ऐसे आते हैं<br/>हमारे Signals",
+    sigLock: "🔓 Full signal (SL + Premium alerts) के लिए", sigLockLink: "Telegram join करो →",
+    howTag: "// शुरू कैसे करें", howTitle: "3 Steps में<br/>Trading शुरू",
+    s1t: "Binance पर Free Account बनाओ", s1d: "नीचे link से join करो — 5 मिनट में account ready। KYC के लिए Aadhaar/PAN काफी है।", s1l: "Account बनाओ →",
+    s2t: "Telegram Channel Join करो", s2d: "Daily signals, chart analysis, और market updates — सब free में।",
+    s3t: "पहला Trade करो — Safely", s3d: "छोटे amount से शुरू करो। हमारे signals follow करो। Risk manage करना सीखो।",
+    testTag: "// Community", testTitle: "Traders क्या कहते हैं",
+    t1q: '"Pavan bhai के signals से पहले ही महीने में 18% profit हुआ। SMC concepts अब समझ आते हैं।"',
+    t2q: '"Hindi में explanation मिलती है — इससे बड़ी बात क्या होगी। Binance पर fearless trading कर रहा हूँ।"',
+    t3q: '"मुझे लगता था crypto बहुत मुश्किल है। Pavan bhai की community ने सब आसान कर दिया।"',
+    langTitle: "हम बोलते हैं<br/>आपकी भाषा", langSub: "किसी भी भाषा पर click करें",
+    ctaH2: "आज शुरू करो।<br/>कल का इंतज़ार क्यों?", ctaP: "Free account · No hidden charges · Expert guidance",
+    ctaBtn: "🚀 अभी Binance Join करो", tgFloat: "✈ Free Signals पाओ",
+    footerDisc: "Crypto trading में risk होता है। Invest wisely।"
+  },
+  en: {
+    navCta: "Join Binance ↗",
+    eyebrow: "Crypto Trading · Global",
+    h1: "First Trade.<br/>",
+    accent: "First Profit.",
+    sub: "Join World's #1 exchange Binance — expert signals, smart analysis, learn from scratch.",
+    btnP: "🚀 Create Free Binance Account",
+    btnS: "📲 Join Telegram Channel",
+    stat1: "Users", stat2: "Account Fee", stat3: "Daily Signals",
+    featTag: "// Why Choose Us", featTitle: "Smart Trading<br/>The Right Way",
+    f1t: "Daily Free Signals", f1d: "BTC, ETH, and altcoins with entry, target, and stop-loss every single day.",
+    f2t: "Smart Money Concepts", f2d: "Institutional methods — BOS, CHoCH, liquidity zones explained in simple language.",
+    f3t: "Binance — 100% Secure", f3d: "World's most trusted exchange with SAFU fund protection and industry-best security.",
+    f4t: "5 Languages Support", f4d: "Hindi, English, Marathi, Arabic, Spanish — trade without language barriers.",
+    sigTag: "// Live Signal Preview", sigTitle: "Our Signals<br/>Look Like This",
+    sigLock: "🔓 Full signal (SL + Premium alerts) →", sigLockLink: "Join Telegram →",
+    howTag: "// How to Start", howTitle: "3 Steps to<br/>Start Trading",
+    s1t: "Create Free Binance Account", s1d: "Join via our link — account ready in 5 minutes. KYC with Aadhaar/PAN or Passport.", s1l: "Create Account →",
+    s2t: "Join Telegram Channel", s2d: "Daily signals, chart analysis, and market updates — all completely free.",
+    s3t: "Make Your First Trade — Safely", s3d: "Start small. Follow our signals. Learn risk management step by step.",
+    testTag: "// Community", testTitle: "What Traders Say",
+    t1q: '"Made 18% profit in the very first month with Pavan\'s signals. SMC concepts are crystal clear now."',
+    t2q: '"Explanations in my language — nothing better than that. Trading on Binance fearlessly now."',
+    t3q: '"I thought crypto was very difficult. Pavan\'s community made everything simple and easy."',
+    langTitle: "We Speak<br/>Your Language", langSub: "Click any language to switch",
+    ctaH2: "Start Today.<br/>Why Wait?", ctaP: "Free account · No hidden charges · Expert guidance",
+    ctaBtn: "🚀 Join Binance Now", tgFloat: "✈ Get Free Signals",
+    footerDisc: "Crypto trading involves risk. Invest wisely."
+  },
+  mr: {
+    navCta: "Binance Join करा ↗",
+    eyebrow: "Crypto Trading · India",
+    h1: "पहिला Trade.<br/>",
+    accent: "पहिला Profit.",
+    sub: "जगातील #1 exchange Binance वर join करा — expert signals, smart analysis, आणि सुरुवातीपासून शिका।",
+    btnP: "🚀 Binance वर Free Account बनवा",
+    btnS: "📲 Telegram Channel Join करा",
+    stat1: "Users", stat2: "Account Fees", stat3: "Daily Signals",
+    featTag: "// का आमच्यासोबत", featTitle: "Smart Trading चा<br/>योग्य मार्ग",
+    f1t: "रोज Free Signals", f1d: "BTC, ETH, आणि altcoins साठी रोज entry, target, आणि stop-loss सह signals।",
+    f2t: "Smart Money Concepts", f2d: "Institutional trading methods — BOS, CHoCH, liquidity zones — सोप्या Marathi मध्ये।",
+    f3t: "Binance — 100% Secure", f3d: "जगातील सर्वात विश्वासू exchange, SAFU fund protection सह।",
+    f4t: "5 भाषांमध्ये Support", f4d: "Hindi, English, Marathi, Arabic, Spanish — भाषेची अडचण नाही।",
+    sigTag: "// Live Signal Preview", sigTitle: "असे येतात<br/>आमचे Signals",
+    sigLock: "🔓 Full signal साठी", sigLockLink: "Telegram join करा →",
+    howTag: "// सुरुवात कशी करावी", howTitle: "3 Steps मध्ये<br/>Trading सुरू करा",
+    s1t: "Binance वर Free Account बनवा", s1d: "आमच्या link द्वारे join करा — 5 मिनिटांत account तयार। KYC साठी Aadhaar/PAN पुरेसे।", s1l: "Account बनवा →",
+    s2t: "Telegram Channel Join करा", s2d: "Daily signals, chart analysis, आणि market updates — सर्व free।",
+    s3t: "पहिला Trade करा — Safely", s3d: "लहान amount पासून सुरुवात करा। आमचे signals follow करा।",
+    testTag: "// Community", testTitle: "Traders काय म्हणतात",
+    t1q: '"Pavan भाऊंच्या signals मुळे पहिल्याच महिन्यात 18% profit झाला। SMC concepts आता समजतात।"',
+    t2q: '"Marathi मध्ये explanation मिळते — यापेक्षा मोठी गोष्ट काय असेल। Binance वर fearless trading करतो।"',
+    t3q: '"मला वाटत होतं crypto खूप कठीण आहे। Pavan भाऊंच्या community ने सर्व सोपं केलं।"',
+    langTitle: "आम्ही बोलतो<br/>तुमची भाषा", langSub: "कोणत्याही भाषेवर click करा",
+    ctaH2: "आज सुरुवात करा।<br/>उद्याची वाट का?", ctaP: "Free account · कोणतेही hidden charges नाही",
+    ctaBtn: "🚀 आत्ता Binance Join करा", tgFloat: "✈ Free Signals मिळवा",
+    footerDisc: "Crypto trading मध्ये risk असते। Invest wisely।"
+  },
+  ar: {
+    navCta: "انضم إلى Binance ↗",
+    eyebrow: "تداول العملات المشفرة · عالمي",
+    h1: "أول صفقة.<br/>",
+    accent: "أول ربح.",
+    sub: "انضم إلى Binance أفضل منصة في العالم — إشارات احترافية، تحليل ذكي، تعلم من الصفر.",
+    btnP: "🚀 إنشاء حساب مجاني في Binance",
+    btnS: "📲 انضم لقناة Telegram",
+    stat1: "مستخدم", stat2: "رسوم الحساب", stat3: "إشارات يومية",
+    featTag: "// لماذا معنا", featTitle: "التداول الذكي<br/>بالطريقة الصحيحة",
+    f1t: "إشارات يومية مجانية", f1d: "إشارات يومية لـ BTC وETH والعملات البديلة مع نقاط الدخول والهدف ووقف الخسارة.",
+    f2t: "مفاهيم الأموال الذكية", f2d: "أساليب التداول المؤسسي — BOS وCHoCH ومناطق السيولة بشرح بسيط.",
+    f3t: "Binance — آمن 100%", f3d: "أكثر منصة موثوقة في العالم مع حماية صندوق SAFU.",
+    f4t: "دعم 5 لغات", f4d: "الهندية والإنجليزية والماراثية والعربية والإسبانية — تداول بلا حواجز لغوية.",
+    sigTag: "// معاينة الإشارة", sigTitle: "هكذا تبدو<br/>إشاراتنا",
+    sigLock: "🔓 للإشارة الكاملة →", sigLockLink: "انضم لـ Telegram →",
+    howTag: "// كيف تبدأ", howTitle: "3 خطوات<br/>لبدء التداول",
+    s1t: "إنشاء حساب مجاني في Binance", s1d: "انضم عبر رابطنا — الحساب جاهز في 5 دقائق.", s1l: "إنشاء حساب →",
+    s2t: "انضم لقناة Telegram", s2d: "إشارات يومية وتحليل مجاني كل يوم.",
+    s3t: "اجعل أول صفقة — بأمان", s3d: "ابدأ بمبلغ صغير. اتبع إشاراتنا. تعلم إدارة المخاطر.",
+    testTag: "// المجتمع", testTitle: "ماذا يقول المتداولون",
+    t1q: '"حققت 18% ربح في الشهر الأول مع إشارات Pavan. مفاهيم SMC أصبحت واضحة الآن."',
+    t2q: '"الشرح بلغتي — لا شيء أفضل من ذلك. أتداول الآن في Binance بجرأة."',
+    t3q: '"كنت أعتقد أن العملات المشفرة صعبة جداً. مجتمع Pavan جعل كل شيء سهلاً."',
+    langTitle: "نتحدث<br/>لغتك", langSub: "انقر على أي لغة للتبديل",
+    ctaH2: "ابدأ اليوم.<br/>لماذا الانتظار؟", ctaP: "حساب مجاني · بدون رسوم خفية",
+    ctaBtn: "🚀 انضم إلى Binance الآن", tgFloat: "✈ احصل على إشارات مجانية",
+    footerDisc: "ينطوي تداول العملات المشفرة على مخاطر. استثمر بحكمة."
+  },
+  es: {
+    navCta: "Unirse a Binance ↗",
+    eyebrow: "Trading de Cripto · Global",
+    h1: "Primer Trade.<br/>",
+    accent: "Primera Ganancia.",
+    sub: "Únete al exchange #1 del mundo Binance — señales expertas, análisis inteligente, aprende desde cero.",
+    btnP: "🚀 Crear Cuenta Gratis en Binance",
+    btnS: "📲 Unirse al Canal de Telegram",
+    stat1: "Usuarios", stat2: "Tarifa de Cuenta", stat3: "Señales Diarias",
+    featTag: "// Por Qué Elegirnos", featTitle: "Trading Inteligente<br/>De La Manera Correcta",
+    f1t: "Señales Diarias Gratis", f1d: "BTC, ETH y altcoins con entrada, objetivo y stop-loss cada día.",
+    f2t: "Conceptos de Dinero Inteligente", f2d: "Métodos institucionales — BOS, CHoCH, zonas de liquidez explicados simplemente.",
+    f3t: "Binance — 100% Seguro", f3d: "El exchange más confiable del mundo con protección del fondo SAFU.",
+    f4t: "Soporte en 5 Idiomas", f4d: "Hindi, Inglés, Marathi, Árabe, Español — opera sin barreras de idioma.",
+    sigTag: "// Vista Previa de Señal", sigTitle: "Nuestras Señales<br/>Se Ven Así",
+    sigLock: "🔓 Señal completa (SL + alertas Premium) →", sigLockLink: "Unirse a Telegram →",
+    howTag: "// Cómo Empezar", howTitle: "3 Pasos Para<br/>Comenzar a Operar",
+    s1t: "Crear Cuenta Gratis en Binance", s1d: "Únete a través de nuestro enlace — cuenta lista en 5 minutos.", s1l: "Crear Cuenta →",
+    s2t: "Unirse al Canal de Telegram", s2d: "Señales diarias, análisis de gráficos y actualizaciones — todo gratis.",
+    s3t: "Haz Tu Primer Trade — Con Seguridad", s3d: "Empieza con poco. Sigue nuestras señales. Aprende gestión de riesgo.",
+    testTag: "// Comunidad", testTitle: "Lo Que Dicen Los Traders",
+    t1q: '"Obtuve 18% de ganancia en el primer mes con las señales de Pavan. Los conceptos SMC ahora son claros."',
+    t2q: '"Explicaciones en mi idioma — nada mejor que eso. Opero en Binance con confianza ahora."',
+    t3q: '"Pensaba que las criptos eran muy difíciles. La comunidad de Pavan lo hizo todo fácil."',
+    langTitle: "Hablamos<br/>Tu Idioma", langSub: "Haz clic en cualquier idioma para cambiar",
+    ctaH2: "Empieza Hoy.<br/>¿Por Qué Esperar?", ctaP: "Cuenta gratis · Sin cargos ocultos · Guía experta",
+    ctaBtn: "🚀 Unirse a Binance Ahora", tgFloat: "✈ Señales Gratis",
+    footerDisc: "El trading de criptos implica riesgo. Invierte con sabiduría."
+  }
+};
+
+function setLang(lang) {
+  const t = T[lang];
+  if (!t) return;
+  // RTL for Arabic
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  // Update content
+  const s = (id, html) => { const el = document.getElementById(id); if(el) el.innerHTML = html; };
+  s('nav-cta', t.navCta);
+  s('hero-eyebrow', t.eyebrow);
+  s('hero-h1', t.h1 + '<span class="accent" id="hero-accent">' + t.accent + '</span>');
+  s('hero-sub', t.sub);
+  s('btn-primary', t.btnP);
+  s('btn-secondary', t.btnS);
+  s('stat1', t.stat1); s('stat2', t.stat2); s('stat3', t.stat3);
+  s('feat-tag', t.featTag); s('feat-title', t.featTitle);
+  s('f1t', t.f1t); s('f1d', t.f1d);
+  s('f2t', t.f2t); s('f2d', t.f2d);
+  s('f3t', t.f3t); s('f3d', t.f3d);
+  s('f4t', t.f4t); s('f4d', t.f4d);
+  s('sig-tag', t.sigTag); s('sig-title', t.sigTitle);
+  s('sig-lock', '🔓 ' + t.sigLock + ' <a href="https://t.me/GlobalTraderPavan" target="_blank" style="color:var(--gold);text-decoration:none">' + t.sigLockLink + '</a>');
+  s('how-tag', t.howTag); s('how-title', t.howTitle);
+  s('s1t', t.s1t); s('s1d', t.s1d); s('s1l', t.s1l);
+  s('s2t', t.s2t); s('s2d', t.s2d);
+  s('s3t', t.s3t); s('s3d', t.s3d);
+  s('test-tag', t.testTag); s('test-title', t.testTitle);
+  s('t1q', t.t1q); s('t2q', t.t2q); s('t3q', t.t3q);
+  s('lang-title', t.langTitle); s('lang-sub', t.langSub);
+  s('cta-h2', t.ctaH2); s('cta-p', t.ctaP); s('cta-btn', t.ctaBtn);
+  s('tg-float', t.tgFloat);
+  s('footer-disc', t.footerDisc);
+}
+
+// Ticker
+const coins = [
+  {sym:'BTC',price:'67,482',change:'+2.4%',up:true},
+  {sym:'ETH',price:'3,521',change:'+1.8%',up:true},
+  {sym:'BNB',price:'612',change:'+0.9%',up:true},
+  {sym:'SOL',price:'178',change:'-0.4%',up:false},
+  {sym:'XRP',price:'0.612',change:'+3.1%',up:true},
+  {sym:'ADA',price:'0.48',change:'-1.2%',up:false},
+  {sym:'DOGE',price:'0.168',change:'+5.2%',up:true},
+  {sym:'AVAX',price:'38.4',change:'+2.0%',up:true},
+];
+const track = document.getElementById('ticker');
+const doubled = [...coins,...coins];
+track.innerHTML = doubled.map(c=>`<div class="ticker-item"><span class="sym">${c.sym}/USDT</span><span>$${c.price}</span><span class="${c.up?'up':'down'}">${c.change}</span></div>`).join('');
+
+// Default Hindi
+setLang('hi');
+</script>
+</body>
+</html>
