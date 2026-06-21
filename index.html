@@ -270,9 +270,9 @@
       <div class="signal-live"><div class="signal-dot"></div>LIVE</div>
     </div>
     <div class="signal-body">
-      <div class="signal-row"><span class="signal-key">ENTRY</span><span class="signal-val buy">$67,200 – $67,800</span></div>
-      <div class="signal-row"><span class="signal-key">TARGET 1</span><span class="signal-val tp">$69,500</span></div>
-      <div class="signal-row"><span class="signal-key">TARGET 2</span><span class="signal-val tp">$72,000</span></div>
+      <div class="signal-row"><span class="signal-key">ENTRY</span><span class="signal-val buy" id="live-entry">Loading...</span></div>
+<div class="signal-row"><span class="signal-key">TARGET 1</span><span class="signal-val tp" id="live-t1">Loading...</span></div>
+<div class="signal-row"><span class="signal-key">TARGET 2</span><span class="signal-val tp" id="live-t2">Loading...</span></div>
       <div class="signal-row signal-blur"><span class="signal-key">STOP LOSS</span><span class="signal-val sl">$██,███</span></div>
     </div>
     <div class="signal-footer">✦ SMC · Multi-TF Confirmed · Low Risk</div>
@@ -568,6 +568,28 @@ track.innerHTML = doubled.map(c=>`<div class="ticker-item"><span class="sym">${c
 
 // Default Hindi
 setLang('hi');
+</script>
+<script>
+async function updateLiveSignal() {
+  try {
+    const r = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT');
+    const d = await r.json();
+    const price = parseFloat(d.lastPrice);
+    const chg = parseFloat(d.priceChangePercent);
+    const dir = chg > 0 ? 'LONG 📈' : 'SHORT 📉';
+    
+    document.querySelector('.signal-title').textContent = 'BTCUSDT · ' + dir;
+    document.getElementById('live-entry').textContent = 
+      '$' + (price*0.998).toLocaleString('en-US',{maximumFractionDigits:0}) + 
+      ' – $' + (price*1.002).toLocaleString('en-US',{maximumFractionDigits:0});
+    document.getElementById('live-t1').textContent = 
+      '$' + (price*1.02).toLocaleString('en-US',{maximumFractionDigits:0});
+    document.getElementById('live-t2').textContent = 
+      '$' + (price*1.04).toLocaleString('en-US',{maximumFractionDigits:0});
+  } catch(e) { console.log('Price fetch error:', e); }
+}
+updateLiveSignal();
+setInterval(updateLiveSignal, 30000); // हर 30 seconds update
 </script>
 </body>
 </html>
