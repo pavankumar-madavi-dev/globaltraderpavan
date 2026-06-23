@@ -5,591 +5,397 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GlobalTraderPavan — Free Crypto Signals | Binance India | niDar Marketing</title>
   <meta name="description" content="India के best crypto trader Pavan के साथ Binance join करो। Free daily signals, BTC ETH analysis Hindi में। 5 languages support। niDar Marketing And Services।"/>
-  <meta name="keywords" content="Binance India referral, free crypto signals Hindi, Bitcoin trading India, Binance join bonus, crypto signals Telegram, GlobalTraderPavan, niDar marketing, BTC ETH signals, crypto trading Maharashtra, Binance referral link India, تداول العملات المشفرة, trading crypto español gratis, क्रिप्टो ट्रेडिंग हिंदी"/>
+  <meta name="keywords" content="Binance India referral, free crypto signals Hindi, Bitcoin trading India, Binance join bonus, crypto signals Telegram, GlobalTraderPavan, niDar marketing, BTC ETH signals, crypto trading Maharashtra, Binance referral link India"/>
   <meta name="author" content="GlobalTraderPavan — niDar Marketing And Services"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://pavankumar-madavi-dev.github.io/globaltraderpavan/"/>
-  <meta property="og:title" content="Free Crypto Signals + Binance Join Bonus | GlobalTraderPavan"/>
-  <meta property="og:description" content="India के best crypto signals — Hindi में। Binance पर join करो और extra bonus पाओ।"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://pavankumar-madavi-dev.github.io/globaltraderpavan/"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Free Crypto Signals | Binance India | GlobalTraderPavan"/>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"niDar Marketing And Services","alternateName":"GlobalTraderPavan","url":"https://pavankumar-madavi-dev.github.io/globaltraderpavan/","description":"Free crypto trading signals in Hindi, English, Marathi, Arabic, Spanish.","contactPoint":{"@type":"ContactPoint","telephone":"+91-89566-81474","contactType":"customer service"},"sameAs":["https://t.me/GlobalTraderPavan"]}
-  </script>
-    <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5H1TGFN86Z"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-5H1TGFN86Z');
-  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --gold: #F5A623;
       --gold-dim: #B87D1A;
-      --bg: #0A0A0F;
-      --surface: #12121A;
-      --surface2: #1A1A26;
-      --border: #2A2A3A;
+      --bg: #07090e;
+      --glass-bg: rgba(24, 26, 32, 0.7);
+      --glass-border: rgba(243, 186, 47, 0.15);
       --text: #E8E8F0;
-      --muted: #6B6B80;
-      --green: #00C896;
-      --red: #FF4D6D;
+      --muted: #929ba6;
+      --green: #0ecb81;
+      --red: #ea4335;
       --mono: 'Space Mono', monospace;
       --sans: 'Inter', sans-serif;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:var(--bg); color:var(--text); font-family:var(--sans); overflow-x:hidden; }
 
-    /* LANG SWITCHER */
-    .lang-bar {
-      background: var(--surface2);
-      border-bottom: 1px solid var(--border);
-      padding: 8px 16px;
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      justify-content: center;
-      flex-wrap: wrap;
+    /* Light Theme Settings */
+    body.light-theme {
+      --bg: #f4f6f9;
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(245, 166, 35, 0.3);
+      --text: #1e2329;
+      --muted: #5e6673;
     }
-    .lang-bar::-webkit-scrollbar { display:none; }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:var(--sans); overflow-x:hidden; transition: background 0.3s, color 0.3s; }
+
+    /* LANG & THEME BAR */
+    .top-controls {
+      background: rgba(30, 35, 41, 0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .lang-bar { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
     .lang-btn {
       background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 5px 12px;
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+      padding: 6px 14px;
       border-radius: 20px;
       font-size: 12px;
       cursor: pointer;
       transition: all 0.2s;
-      white-space: nowrap;
-      font-family: var(--sans);
     }
-    .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
     .lang-btn.active { background: var(--gold); border-color: var(--gold); color: #000; font-weight: 700; }
+    
+    .theme-toggle {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+    }
 
     /* TICKER */
-    .ticker-wrap { background:var(--surface); border-bottom:1px solid var(--border); overflow:hidden; padding:8px 0; }
-    .ticker-track { display:flex; gap:48px; animation:ticker 28s linear infinite; white-space:nowrap; width:max-content; }
-    .ticker-item { font-family:var(--mono); font-size:12px; display:flex; align-items:center; gap:8px; }
-    .ticker-item .sym { color:var(--gold); font-weight:700; }
-    .ticker-item .up { color:var(--green); }
-    .ticker-item .down { color:var(--red); }
+    .ticker-wrap { background:rgba(30, 35, 41, 0.8); backdrop-filter: blur(5px); overflow:hidden; padding:12px 0; border-bottom:1px solid var(--glass-border); }
+    .ticker-track { display:flex; gap:48px; animation:ticker 25s linear infinite; white-space:nowrap; width:max-content; }
+    .ticker-item { font-family:var(--mono); font-size:13px; display:flex; align-items:center; gap:8px; font-weight: 600; }
+    .ticker-item .sym { color:var(--gold); }
+    .text-green { color:var(--green); text-shadow: 0 0 8px rgba(14, 203, 129, 0.2); }
     @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
     /* NAV */
-    nav { display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--border); }
-    .logo { font-family:var(--mono); font-size:15px; color:var(--gold); letter-spacing:.05em; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--glass-border); }
+    .logo { font-family:var(--mono); font-size:18px; color:var(--gold); font-weight: 800; letter-spacing:.05em; }
     .logo span { color:var(--text); }
-    .nav-cta { background:var(--gold); color:#000; font-size:13px; font-weight:700; padding:8px 18px; border-radius:4px; text-decoration:none; transition:opacity .2s; }
-    .nav-cta:hover { opacity:.85; }
+    .nav-cta { background:var(--gold); color:#000; font-size:13px; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; box-shadow: 0 4px 12px rgba(243, 186, 47, 0.2); }
 
     /* HERO */
-    .hero { min-height:88vh; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:64px 24px 48px; position:relative; overflow:hidden; }
-    .hero::before { content:''; position:absolute; top:-120px; right:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(245,166,35,.10) 0%,transparent 70%); pointer-events:none; }
-    .hero-eyebrow { font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:.15em; text-transform:uppercase; margin-bottom:20px; display:flex; align-items:center; gap:8px; }
-    .hero-eyebrow::before { content:''; display:inline-block; width:24px; height:1px; background:var(--gold); }
-    .hero h1 { font-size:clamp(2.4rem,9vw,5rem); font-weight:700; line-height:1.1; letter-spacing:-.02em; margin-bottom:16px; max-width:680px; }
-    .hero h1 .accent { color:var(--gold); }
-    .hero-sub { font-size:clamp(1rem,3vw,1.2rem); color:var(--muted); font-weight:300; margin-bottom:40px; max-width:480px; line-height:1.6; }
-    .hero-actions { display:flex; flex-direction:column; gap:12px; width:100%; max-width:340px; }
-    .btn-primary { display:block; text-align:center; background:var(--gold); color:#000; font-weight:700; font-size:15px; padding:16px; border-radius:6px; text-decoration:none; letter-spacing:.03em; transition:transform .15s,opacity .2s; position:relative; overflow:hidden; }
-    .btn-primary::after { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent); animation:shine 3s ease-in-out infinite; }
-    @keyframes shine { 0%{left:-100%} 40%,100%{left:150%} }
-    .btn-primary:hover { opacity:.88; transform:translateY(-1px); }
-    .btn-secondary { display:block; text-align:center; border:1px solid var(--border); color:var(--text); font-size:14px; padding:14px; border-radius:6px; text-decoration:none; transition:border-color .2s,color .2s; }
-    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .hero { min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:64px 24px; position:relative; }
+    .hero h1 { font-size:clamp(2.4rem,8vw,4.5rem); font-weight:900; line-height:1.1; margin-bottom:16px; max-width:680px; }
+    .hero h1 .accent { color:var(--gold); text-shadow: 0 4px 12px rgba(243, 186, 47, 0.2); }
+    .hero-sub { font-size:clamp(1rem,3vw,1.2rem); color:var(--muted); margin-bottom:40px; max-width:500px; line-height:1.6; }
+    .hero-actions { display:flex; flex-direction:column; gap:14px; width:100%; max-width:360px; }
+    
+    .btn-primary { display:block; text-align:center; background:linear-gradient(135deg, var(--gold), #e0aa22); color:#07090e; font-weight:800; font-size:15px; padding:16px; border-radius:12px; text-decoration:none; box-shadow: 0 6px 20px rgba(243, 186, 47, 0.3); transition: transform 0.2s; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-secondary { display:block; text-align:center; border:1px solid var(--glass-border); background: var(--glass-bg); color:var(--text); font-size:14px; padding:14px; border-radius:12px; text-decoration:none; font-weight: 600; }
+
+    /* PREMIUM GLASS CARD */
+    .glass-card { background:var(--glass-bg); border-radius:20px; padding:26px; border:1px solid var(--glass-border); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2); backdrop-filter: blur(12px); margin-bottom:25px; }
 
     /* STATS */
-    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .stat { background:var(--surface); padding:28px 20px; text-align:center; }
-    .stat-num { font-family:var(--mono); font-size:clamp(1.4rem,4vw,2rem); color:var(--gold); font-weight:700; display:block; margin-bottom:4px; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--glass-border); }
+    .stat { background:var(--glass-bg); padding:28px 20px; text-align:center; backdrop-filter: blur(5px); }
+    .stat-num { font-family:var(--mono); font-size:clamp(1.4rem,4vw,2.2rem); color:var(--gold); font-weight:900; }
     .stat-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
 
     /* SECTION */
     .section { padding:72px 24px; }
-    .section-tag { font-family:var(--mono); font-size:10px; color:var(--gold); letter-spacing:.15em; text-transform:uppercase; margin-bottom:12px; }
-    .section-title { font-size:clamp(1.6rem,5vw,2.4rem); font-weight:700; margin-bottom:48px; line-height:1.2; }
+    .section-title { font-size:clamp(1.6rem,5vw,2.5rem); font-weight:800; margin-bottom:36px; }
 
     /* FEATURES */
     .features { display:grid; grid-template-columns:1fr; gap:16px; }
-    .feature-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:24px; display:flex; gap:16px; align-items:flex-start; transition:border-color .2s; }
-    .feature-card:hover { border-color:var(--gold-dim); }
-    .feature-icon { font-size:24px; flex-shrink:0; margin-top:2px; }
-    .feature-title { font-weight:600; margin-bottom:6px; font-size:15px; }
-    .feature-desc { font-size:13px; color:var(--muted); line-height:1.6; }
+    .feature-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; padding:24px; display:flex; gap:16px; }
+    .feature-icon { font-size:26px; }
+    .feature-title { font-weight:700; margin-bottom:6px; font-size:16px; color: var(--gold); }
+    .feature-desc { font-size:13.5px; color:var(--muted); line-height:1.6; }
 
     /* SIGNAL */
-    .signal-section { padding:72px 24px; background:var(--surface); }
-    .signal-card { border:1px solid var(--border); border-radius:8px; overflow:hidden; max-width:400px; }
-    .signal-header { background:var(--surface2); padding:12px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); }
-    .signal-title { font-family:var(--mono); font-size:13px; color:var(--gold); }
-    .signal-live { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--green); }
-    .signal-dot { width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 1.5s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
-    .signal-body { padding:20px 16px; display:flex; flex-direction:column; gap:12px; }
-    .signal-row { display:flex; justify-content:space-between; font-size:13px; }
-    .signal-key { color:var(--muted); font-family:var(--mono); font-size:11px; }
-    .signal-val { font-weight:600; }
+    .signal-section { padding:72px 24px; }
+    .signal-card { border:1px solid var(--glass-border); border-radius:16px; overflow:hidden; max-width:420px; background: var(--glass-bg); }
+    .signal-header { background: rgba(243, 186, 47, 0.1); padding:14px 18px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--glass-border); }
+    .signal-title { font-family:var(--mono); font-size:14px; color:var(--gold); font-weight: 700; }
+    .signal-live { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--green); font-weight: 700; }
+    .signal-dot { width:8px; height:8px; background:var(--green); border-radius:50%; animation:pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.2);opacity:0.5} }
+    .signal-body { padding:22px 18px; display:flex; flex-direction:column; gap:14px; }
+    .signal-row { display:flex; justify-content:space-between; font-size:14px; }
+    .signal-key { color:var(--muted); font-family:var(--mono); }
+    .signal-val { font-weight:700; }
     .signal-val.buy { color:var(--green); }
-    .signal-val.tp { color:var(--gold); }
-    .signal-val.sl { color:var(--red); }
-    .signal-footer { background:rgba(0,200,150,.08); border-top:1px solid var(--border); padding:10px 16px; font-size:11px; color:var(--green); font-family:var(--mono); letter-spacing:.05em; }
-    .signal-blur { filter:blur(5px); user-select:none; pointer-events:none; opacity:.5; }
-    .signal-lock { text-align:center; padding:16px; font-size:13px; color:var(--muted); }
-    .signal-lock a { color:var(--gold); text-decoration:none; }
+    .signal-footer { background:rgba(14, 203, 129, 0.05); border-top:1px solid var(--glass-border); padding:12px 18px; font-size:12px; color:var(--green); font-family:var(--mono); }
 
     /* STEPS */
-    .steps { display:flex; flex-direction:column; gap:0; }
-    .step { display:flex; gap:20px; padding:28px 0; border-bottom:1px solid var(--border); }
-    .step:last-child { border-bottom:none; }
-    .step-num { font-family:var(--mono); font-size:28px; color:var(--border); font-weight:700; flex-shrink:0; width:40px; line-height:1; padding-top:4px; }
-    .step-title { font-weight:600; font-size:15px; margin-bottom:6px; }
-    .step-desc { font-size:13px; color:var(--muted); line-height:1.6; }
-    .step-link { color:var(--gold); text-decoration:none; font-size:13px; font-weight:600; }
+    .steps { display:flex; flex-direction:column; }
+    .step { display:flex; gap:20px; padding:28px 0; border-bottom:1px solid var(--glass-border); }
+    .step-num { font-family:var(--mono); font-size:32px; color:var(--glass-border); font-weight:800; }
+    .step-title { font-weight:700; font-size:16px; margin-bottom:6px; }
+    .step-desc { font-size:13.5px; color:var(--muted); line-height:1.6; }
+    .step-link { color:var(--gold); text-decoration:none; font-size:13.5px; font-weight:700; }
+
+    /* SAFETY SHIELD / LEGAL DISCLAIMER */
+    .safety-card { background: rgba(234, 67, 53, 0.04); border: 1px solid rgba(234, 67, 53, 0.2); border-radius: 16px; padding: 22px; margin-top: 30px; }
+    .safety-title { color: var(--red); font-size: 15px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .safety-text { font-size: 12px; color: var(--muted); line-height: 1.7; text-align: justify; }
 
     /* TESTIMONIALS */
     .testimonials { display:flex; flex-direction:column; gap:16px; }
-    .tcard { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; }
-    .tcard-quote { font-size:14px; line-height:1.7; margin-bottom:14px; }
-    .tcard-meta { display:flex; align-items:center; gap:10px; }
-    .tcard-avatar { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-dim)); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; color:#000; }
-    .tcard-name { font-size:13px; font-weight:600; }
-    .tcard-city { font-size:11px; color:var(--muted); }
+    .tcard { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; padding:22px; }
+    .tcard-quote { font-size:14px; line-height:1.7; font-style: italic; }
+    .tcard-meta { display:flex; align-items:center; gap:10px; margin-top: 12px; }
+    .tcard-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-dim)); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#000; }
 
-    /* LANGUAGES SECTION */
-    .lang-section { padding:72px 24px; background:var(--surface2); }
-    .lang-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:32px; }
-    .lang-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; text-align:center; cursor:pointer; transition:border-color .2s; }
-    .lang-card:hover { border-color:var(--gold); }
-    .lang-flag { font-size:28px; margin-bottom:8px; }
-    .lang-name { font-size:13px; font-weight:600; margin-bottom:4px; }
-    .lang-native { font-size:12px; color:var(--muted); }
+    footer { padding:40px 24px; border-top:1px solid var(--glass-border); text-align:center; font-size:12px; color:var(--muted); font-family:var(--mono); }
+    footer a { color:var(--gold); text-decoration:none; font-weight: bold; }
 
-    /* CTA */
-    .cta-section { padding:80px 24px; text-align:center; background:linear-gradient(180deg,var(--bg) 0%,var(--surface) 100%); position:relative; overflow:hidden; }
-    .cta-section::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:400px; height:400px; background:radial-gradient(circle,rgba(245,166,35,.12) 0%,transparent 70%); pointer-events:none; }
-    .cta-section h2 { font-size:clamp(1.8rem,6vw,3rem); font-weight:700; margin-bottom:12px; line-height:1.2; }
-    .cta-section p { color:var(--muted); margin-bottom:36px; font-size:15px; }
-    .cta-btn { display:inline-block; background:var(--gold); color:#000; font-weight:700; font-size:16px; padding:18px 40px; border-radius:6px; text-decoration:none; transition:opacity .2s,transform .15s; }
-    .cta-btn:hover { opacity:.88; transform:translateY(-2px); }
-
-    footer { padding:24px; border-top:1px solid var(--border); text-align:center; font-size:12px; color:var(--muted); font-family:var(--mono); }
-    footer a { color:var(--gold); text-decoration:none; }
-
-    .tg-float { position:fixed; bottom:24px; right:20px; background:#229ED9; color:#fff; padding:12px 18px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 8px 24px rgba(34,158,217,.4); z-index:99; transition:transform .2s; }
-    .tg-float:hover { transform:translateY(-2px); }
+    /* STICKY FLOATS */
+    .tg-float { position:fixed; bottom:24px; right:20px; background:linear-gradient(135deg, #0088cc, #006699); color:#fff; padding:14px 22px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 8px 24px rgba(34,158,217,.4); z-index:99; }
+    .wa-float { position:fixed; bottom:92px; right:20px; background:linear-gradient(135deg, #25D366, #1ebd57); color:#fff; width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; text-decoration:none; box-shadow:0 6px 20px rgba(37,211,102,.4); z-index:99; }
 
     @media(min-width:600px) {
-      nav,footer { padding:20px 40px; }
-      .hero,.section,.signal-section,.cta-section,.lang-section { padding-left:40px; padding-right:40px; }
-      .features { grid-template-columns:1fr 1fr; }
-      .lang-grid { grid-template-columns:repeat(5,1fr); }
+      .features { grid-template-columns: 1fr 1fr; }
     }
-
-    /* WHATSAPP FLOAT */
-    .wa-float { position:fixed; bottom:90px; right:20px; background:#25D366; color:#fff; width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; text-decoration:none; box-shadow:0 6px 20px rgba(37,211,102,.5); z-index:99; transition:transform .2s; }
-    .wa-float:hover { transform:scale(1.1); }
   </style>
 </head>
 <body>
 
-<!-- LANG BAR -->
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('hi')" data-lang="hi">🇮🇳 हिंदी</button>
-  <button class="lang-btn" onclick="setLang('en')" data-lang="en">🇬🇧 English</button>
-  <button class="lang-btn" onclick="setLang('mr')" data-lang="mr">🇮🇳 मराठी</button>
-  <button class="lang-btn" onclick="setLang('ar')" data-lang="ar">🇸🇦 العربية</button>
-  <button class="lang-btn" onclick="setLang('es')" data-lang="es">🇪🇸 Español</button>
+<div class="top-controls">
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('hi')">🇮🇳 हिंदी</button>
+    <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
+    <button class="lang-btn" onclick="setLang('mr')">🇮🇳 मराठी</button>
+    <button class="lang-btn" onclick="setLang('ar')">🇸🇦 العربية</button>
+    <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i> Theme Toggle</button>
 </div>
 
-<!-- TICKER -->
-<div class="ticker-wrap"><div class="ticker-track" id="ticker"></div></div>
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <div class="ticker-item"><span class="sym">BTC/USDT</span><span class="text-green">$67,482 (+2.4%)</span></div>
+    <div class="ticker-item"><span class="sym">ETH/USDT</span><span class="text-green">$3,540 (+1.8%)</span></div>
+    <div class="ticker-item"><span class="sym">BNB/USDT</span><span class="text-green">$585.2 (+3.1%)</span></div>
+    <div class="ticker-item"><span class="sym">SOL/USDT</span><span class="text-green">$178.4 (+4.2%)</span></div>
+    <div class="ticker-item"><span class="sym">BTC/USDT</span><span class="text-green">$67,482 (+2.4%)</span></div>
+    <div class="ticker-item"><span class="sym">ETH/USDT</span><span class="text-green">$3,540 (+1.8%)</span></div>
+    <div class="ticker-item"><span class="sym">BNB/USDT</span><span class="text-green">$585.2 (+3.1%)</span></div>
+    <div class="ticker-item"><span class="sym">SOL/USDT</span><span class="text-green">$178.4 (+4.2%)</span></div>
+  </div>
+</div>
 
-<!-- NAV -->
 <nav>
   <div class="logo">Global<span>Trader</span>Pavan</div>
-  <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_009BQG4BOM" target="_blank" rel="noopener" class="nav-cta" id="nav-cta">Join Binance ↗</a>
+  <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&ref=GRO_28502_2UOCJ&utm_source=referral_entrance" target="_blank" class="nav-cta" id="nav-cta">Join Binance ↗</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow" id="hero-eyebrow">Crypto Trading · India</div>
-  <h1 id="hero-h1">First Trade.<br/><span class="accent" id="hero-accent">First Profit.</span></h1>
-  <p class="hero-sub" id="hero-sub">Join World's #1 exchange Binance — expert signals, smart analysis, learn from scratch.</p>
-  <div class="hero-actions">
-    <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_009BQG4BOM" target="_blank" rel="noopener" class="btn-primary" id="btn-primary">🚀 Create Free Binance Account</a>
-    <a href="https://t.me/GlobalTraderPavan" target="_blank" rel="noopener" class="btn-secondary" id="btn-secondary">📲 Join Telegram Channel</a>
+  <div class="glass-card" style="width: 100%; max-width: 750px; background: rgba(0,0,0,0.25);">
+    <div class="hero-eyebrow" id="hero-eyebrow">Crypto Trading · India</div>
+    <h1 id="hero-h1">पहला Trade.<br/><span class="accent" id="hero-accent">पहला Profit.</span></h1>
+    <p class="hero-sub" id="hero-sub">दुनिया के नंबर 1 एक्सचेंज Binance से जुड़ें — एक्सपर्ट सिग्नल्स, स्मार्ट एनालिसिस और शुरुआत से सीखें।</p>
+    <div class="hero-actions">
+      <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&ref=GRO_28502_2UOCJ&utm_source=referral_entrance" target="_blank" class="btn-primary" id="btn-primary">🚀 Free Binance अकाउंट बनाएं</a>
+      <a href="https://t.me/GlobalTraderPavan" target="_blank" class="btn-secondary" id="btn-secondary">📲 Telegram चैनल जॉइन करें</a>
+    </div>
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats">
-  <div class="stat"><span class="stat-num">180M+</span><span class="stat-label" id="stat1">Users</span></div>
-  <div class="stat"><span class="stat-num">₹0</span><span class="stat-label" id="stat2">Account Fee</span></div>
-  <div class="stat"><span class="stat-num">Free</span><span class="stat-label" id="stat3">Daily Signals</span></div>
+  <div class="stat"><span class="stat-num">180M+</span><span class="stat-label" id="stat1">यूज़र्स</span></div>
+  <div class="stat"><span class="stat-num">₹0</span><span class="stat-label" id="stat2">अकाउंट फीस</span></div>
+  <div class="stat"><span class="stat-num">फ्री</span><span class="stat-label" id="stat3">डेली सिग्नल्स</span></div>
 </div>
 
-<!-- FEATURES -->
 <section class="section">
-  <div class="section-tag" id="feat-tag">// Why Us</div>
-  <h2 class="section-title" id="feat-title">Smart Trading<br/>The Right Way</h2>
+  <div class="section-tag" id="feat-tag">// हमारे साथ क्यों जुड़ें</div>
+  <h2 class="section-title" id="feat-title">Smart Trading का<br/>सही और सुरक्षित तरीका</h2>
   <div class="features">
     <div class="feature-card">
       <div class="feature-icon">📊</div>
-      <div><div class="feature-title" id="f1t">Daily Free Signals</div><div class="feature-desc" id="f1d">BTC, ETH, and altcoins with entry, target, and stop-loss every day.</div></div>
+      <div>
+        <div class="feature-title" id="f1t">डेली फ्री सिग्नल्स</div>
+        <div class="feature-desc" id="f1d">BTC, ETH और मुख्य ऑल्टकॉइन्स के सटीक एंट्री, टारगेट और स्टॉप-लॉस रोज पाएं।</div>
+      </div>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🧠</div>
-      <div><div class="feature-title" id="f2t">Smart Money Concepts</div><div class="feature-desc" id="f2d">Institutional trading methods — BOS, CHoCH, liquidity zones explained simply.</div></div>
+      <div>
+        <div class="feature-title" id="f2t">Smart Money Concepts</div>
+        <div class="feature-desc" id="f2d">इंस्टीट्यूशनल ट्रेडिंग मेथड्स — BOS, CHoCH और लिक्विडिटी ज़ोन सीखें सरल भाषा में।</div>
+      </div>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🔒</div>
-      <div><div class="feature-title" id="f3t">Binance — 100% Secure</div><div class="feature-desc" id="f3d">World's most trusted exchange with SAFU fund protection and industry-best security.</div></div>
+      <div>
+        <div class="feature-title" id="f3t">Binance — 100% सुरक्षित</div>
+        <div class="feature-desc" id="f3d">दुनिया का सबसे भरोसेमंद एक्सचेंज जहां SAFU फंड सिक्योरिटी से आपका फंड हमेशा सेफ रहता है।</div>
+      </div>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🌍</div>
-      <div><div class="feature-title" id="f4t">5 Languages Support</div><div class="feature-desc" id="f4d">Hindi, English, Marathi, Arabic, Spanish — trade without language barriers.</div></div>
+      <div>
+        <div class="feature-title" id="f4t">5 भाषाओं का सपोर्ट</div>
+        <div class="feature-desc" id="f4d">हिंदी, इंग्लिश, मराठी, अरबी और स्पैनिश — बिना किसी भाषा की बाधा के ट्रेड करें।</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SIGNAL PREVIEW -->
 <section class="signal-section">
-  <div class="section-tag" id="sig-tag">// Live Signal Preview</div>
-  <h2 class="section-title" id="sig-title" style="margin-bottom:28px;">Our Signals<br/>Look Like This</h2>
-  <div class="signal-card">
-    <div class="signal-header">
-      <div class="signal-title">BTCUSDT · LONG</div>
-      <div class="signal-live"><div class="signal-dot"></div>LIVE</div>
+  <div class="glass-card">
+    <div class="section-tag" id="sig-tag">// लाइव सिग्नल प्रीव्यू</div>
+    <h2 class="section-title" id="sig-title" style="margin-bottom:24px;">हमारे सिग्नल्स<br/>ऐसे दिखते हैं</h2>
+    <div class="signal-card">
+      <div class="signal-header">
+        <div class="signal-title">BTCUSDT · LONG</div>
+        <div class="signal-live"><div class="signal-dot"></div>LIVE</div>
+      </div>
+      <div class="signal-body">
+        <div class="signal-row"><span class="signal-key">ENTRY</span><span class="signal-val buy">$63,875 – $64,131</span></div>
+        <div class="signal-row"><span class="signal-key">TARGET 1</span><span class="signal-val" style="color: var(--gold);">$65,283</span></div>
+        <div class="signal-row"><span class="signal-key">TARGET 2</span><span class="signal-val" style="color: var(--gold);">$66,564</span></div>
+        <div class="signal-row" style="filter:blur(4px); opacity:0.4;"><span class="signal-key">STOP LOSS</span><span class="signal-val" style="color: var(--red);">$61,200</span></div>
+      </div>
+      <div class="signal-footer">✦ SMC · Multi-TF Confirmed · Low Risk</div>
     </div>
-    <div class="signal-body">
-      <div class="signal-row"><span class="signal-key">ENTRY</span><span class="signal-val buy" id="live-entry">Loading...</span></div>
-<div class="signal-row"><span class="signal-key">TARGET 1</span><span class="signal-val tp" id="live-t1">Loading...</span></div>
-<div class="signal-row"><span class="signal-key">TARGET 2</span><span class="signal-val tp" id="live-t2">Loading...</span></div>
-      <div class="signal-row signal-blur"><span class="signal-key">STOP LOSS</span><span class="signal-val sl">$██,███</span></div>
+    <div style="margin-top: 15px; font-size: 13px;" id="sig-lock">
+      🔓 फुल सिग्नल (SL + प्रीमियम अलर्ट्स) के लिए → <a href="https://t.me/GlobalTraderPavan" target="_blank" style="color: var(--gold); font-weight: bold; text-decoration: none;">Telegram Join करो →</a>
     </div>
-    <div class="signal-footer">✦ SMC · Multi-TF Confirmed · Low Risk</div>
-  </div>
-  <div class="signal-lock" style="max-width:400px;margin-top:12px;" id="sig-lock">
-    🔓 Full signal (SL + Premium alerts) → <a href="https://t.me/GlobalTraderPavan" target="_blank" id="sig-lock-link">Join Telegram →</a>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="section">
-  <div class="section-tag" id="how-tag">// How to Start</div>
-  <h2 class="section-title" id="how-title">3 Steps to<br/>Start Trading</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div>
-        <div class="step-title" id="s1t">Create Free Binance Account</div>
-        <div class="step-desc" id="s1d">Join via our link — account ready in 5 minutes. KYC with Aadhaar/PAN or Passport.</div>
-        <br/><a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_009BQG4BOM" target="_blank" rel="noopener" class="step-link" id="s1l">Create Account →</a>
+  <div class="glass-card">
+    <div class="section-tag" id="how-tag">// शुरू कैसे करें</div>
+    <h2 class="section-title" id="how-title">3 Steps में<br/>Trading शुरू करें</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title" id="s1t">Binance पर Free Account बनाओ</div>
+          <div class="step-desc" id="s1d">नीचे दिए लिंक से जॉइन करें — 5 मिनट में अकाउंट रेडी। KYC के लिए आधार/पैन या पासपोर्ट का उपयोग करें।</div>
+          <br/><a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&ref=GRO_28502_2UOCJ&utm_source=referral_entrance" target="_blank" class="step-link" id="s1l">Account बनाओ →</a>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div>
-        <div class="step-title" id="s2t">Join Telegram Channel</div>
-        <div class="step-desc" id="s2d">Daily signals, chart analysis, and market updates — all free.</div>
-        <br/><a href="https://t.me/GlobalTraderPavan" target="_blank" class="step-link">@GlobalTraderPavan →</a>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title" id="s2t">Telegram Channel Join करो</div>
+          <div class="step-desc" id="s2d">डेली सिग्नल्स, चार्ट एनालिसिस और मार्केट अपडेट्स — सब कुछ बिल्कुल फ्री।</div>
+          <br/><a href="https://t.me/GlobalTraderPavan" target="_blank" class="step-link">@GlobalTraderPavan →</a>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div>
-        <div class="step-title" id="s3t">Make Your First Trade — Safely</div>
-        <div class="step-desc" id="s3d">Start small. Follow our signals. Learn risk management step by step.</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title" id="s3t">पहला Trade करो — Safely</div>
+          <div class="step-desc" id="s3d">छोटे अमाउंट से शुरू करें। हमारे सिग्नल्स को फॉलो करें और रिस्क मैनेज करना सीखें।</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section" style="padding-top:0">
-  <div class="section-tag" id="test-tag">// Community</div>
-  <h2 class="section-title" id="test-title" style="margin-bottom:28px;">What Traders Say</h2>
+<section class="section">
+  <div class="section-tag" id="rev-tag">// हमारे ट्रेडर्स के अनुभव</div>
+  <h2 class="section-title" id="rev-title">Traders क्या कहते हैं</h2>
   <div class="testimonials">
     <div class="tcard">
-      <div class="tcard-quote" id="t1q">"Made 18% profit in the first month with Pavan bhai's signals. SMC concepts are now clear to me."</div>
-      <div class="tcard-meta"><div class="tcard-avatar">R</div><div><div class="tcard-name">Rahul M.</div><div class="tcard-city">Pune, India</div></div></div>
+      <div class="tcard-quote">"Pavan bhai के signals से पहले ही महीने में 18% profit हुआ। SMC concepts अब समझ आते हैं।"</div>
+      <div class="tcard-meta">
+        <div class="tcard-avatar">R</div>
+        <div><div class="tcard-name">Rahul M.</div><div class="tcard-city">Pune, India</div></div>
+      </div>
     </div>
     <div class="tcard">
-      <div class="tcard-quote" id="t2q">"Explanation in my language — what could be better. Trading on Binance fearlessly now."</div>
-      <div class="tcard-meta"><div class="tcard-avatar">S</div><div><div class="tcard-name">Suresh K.</div><div class="tcard-city">Nagpur, India</div></div></div>
-    </div>
-    <div class="tcard">
-      <div class="tcard-quote" id="t3q">"I thought crypto was very difficult. Pavan bhai's community made everything easy."</div>
-      <div class="tcard-meta"><div class="tcard-avatar">P</div><div><div class="tcard-name">Priya D.</div><div class="tcard-city">Mumbai, India</div></div></div>
+      <div class="tcard-quote">"Hindi में explanation मिलती है — इससे बड़ी बात क्या होगी। Binance पर fearless trading कर रहा हूँ।"</div>
+      <div class="tcard-meta">
+        <div class="tcard-avatar">S</div>
+        <div><div class="tcard-name">Suresh K.</div><div class="tcard-city">Nagpur, India</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- LANGUAGES -->
-<section class="lang-section">
-  <div class="section-tag">// Global Community</div>
-  <h2 class="section-title" id="lang-title" style="margin-bottom:8px;">We Speak<br/>Your Language</h2>
-  <p style="color:var(--muted);font-size:13px;margin-bottom:0" id="lang-sub">Click any language to switch</p>
-  <div class="lang-grid">
-    <div class="lang-card" onclick="setLang('hi')"><div class="lang-flag">🇮🇳</div><div class="lang-name">हिंदी</div><div class="lang-native">Hindi</div></div>
-    <div class="lang-card" onclick="setLang('en')"><div class="lang-flag">🇬🇧</div><div class="lang-name">English</div><div class="lang-native">Global</div></div>
-    <div class="lang-card" onclick="setLang('mr')"><div class="lang-flag">🇮🇳</div><div class="lang-name">मराठी</div><div class="lang-native">Marathi</div></div>
-    <div class="lang-card" onclick="setLang('ar')"><div class="lang-flag">🇸🇦</div><div class="lang-name">العربية</div><div class="lang-native">Arabic</div></div>
-    <div class="lang-card" onclick="setLang('es')"><div class="lang-flag">🇪🇸</div><div class="lang-name">Español</div><div class="lang-native">Spanish</div></div>
+<section class="section" style="padding-top: 0;">
+  <div class="safety-card">
+    <h4 class="safety-title"><i class="fa-solid fa-triangle-exclamation"></i> कानूनी चेतावनी एवं नियम (Terms & Disclaimer)</h4>
+    <p class="safety-text">
+      <strong>स्वयं का जोखिम (Own Risk):</strong> क्रिप्टो करेंसी ट्रेडिंग अत्यधिक बाजार जोखिमों के अधीन है। niDar Marketing And Services या प्रोपराइटर पवन्कुमार मडावी कोई SEBI रजिस्टर्ड सलाहकार नहीं हैं। इस प्लेटफ़ॉर्म द्वारा दिए गए डेटा या सिग्नल्स केवल सूचनात्मक उद्देश्यों के लिए हैं। किसी भी वित्तीय लाभ या हानि के लिए उपयोगकर्ता स्वयं जिम्मेदार होगा। कृपया अपने रिस्क मैनेजमेंट के अनुसार ही ट्रेड करें।
+    </p>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <h2 id="cta-h2">Start Today.<br/>Why Wait?</h2>
-  <p id="cta-p">Free account · No hidden charges · Expert guidance</p>
-  <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_009BQG4BOM" target="_blank" rel="noopener" class="cta-btn" id="cta-btn">🚀 Join Binance Now</a>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <p>© 2025 GlobalTraderPavan · <a href="https://t.me/GlobalTraderPavan" target="_blank">Telegram</a> · <span id="footer-disc">Crypto trading involves risk. Invest wisely.</span></p>
+  <p>© 2026 Pavankumar Madavi | niDar Marketing And Services</p>
+  <p style="margin-top: 5px; font-size: 10px; color: var(--muted);">Sadak Arjuni, Gondia, Maharashtra, India</p>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/918956681474?text=🙏%20नमस्ते!%20Free%20Crypto%20Signals%20के%20बारे%20में%20जानना%20है।" target="_blank" class="wa-float" title="WhatsApp करो">💬</a>
-
-<!-- FLOATING TG -->
-<a href="https://t.me/GlobalTraderPavan" target="_blank" class="tg-float" id="tg-float">✈ Free Signals</a>
+<a href="https://wa.me/918956681474" class="wa-float" target="_blank" title="WhatsApp Chat"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://t.me/GlobalTraderPavan" class="tg-float" target="_blank"><i class="fa-brands fa-telegram"></i> Free Signals</a>
 
 <script>
-// ── TRANSLATIONS ──
-const T = {
-  hi: {
-    navCta: "Binance Join करो ↗",
-    eyebrow: "Crypto Trading · India",
-    h1: "पहला Trade.<br/>",
-    accent: "पहला Profit.",
-    sub: "World's #1 exchange Binance पर join करो — expert signals, smart analysis, और शुरुआत से सीखो।",
-    btnP: "🚀 Binance पर Free Account बनाओ",
-    btnS: "📲 Telegram Channel Join करो",
-    stat1: "Users", stat2: "Account Fees", stat3: "Daily Signals",
-    featTag: "// क्यों हमारे साथ", featTitle: "Smart Trading का<br/>सही तरीका",
-    f1t: "Daily Free Signals", f1d: "BTC, ETH, और altcoins के लिए रोज़ entry, target, और stop-loss के साथ signals।",
-    f2t: "Smart Money Concepts", f2d: "Institutional trading methods — BOS, CHoCH, liquidity zones — simple Hindi में।",
-    f3t: "Binance — 100% Secure", f3d: "World's most trusted exchange, SAFU fund protection, और industry-best security।",
-    f4t: "5 भाषाओं में Support", f4d: "Hindi, English, Marathi, Arabic, Spanish — भाषा की बाधा के बिना trading करो।",
-    sigTag: "// Live Signal Preview", sigTitle: "ऐसे आते हैं<br/>हमारे Signals",
-    sigLock: "🔓 Full signal (SL + Premium alerts) के लिए", sigLockLink: "Telegram join करो →",
-    howTag: "// शुरू कैसे करें", howTitle: "3 Steps में<br/>Trading शुरू",
-    s1t: "Binance पर Free Account बनाओ", s1d: "नीचे link से join करो — 5 मिनट में account ready। KYC के लिए Aadhaar/PAN काफी है।", s1l: "Account बनाओ →",
-    s2t: "Telegram Channel Join करो", s2d: "Daily signals, chart analysis, और market updates — सब free में।",
-    s3t: "पहला Trade करो — Safely", s3d: "छोटे amount से शुरू करो। हमारे signals follow करो। Risk manage करना सीखो।",
-    testTag: "// Community", testTitle: "Traders क्या कहते हैं",
-    t1q: '"Pavan bhai के signals से पहले ही महीने में 18% profit हुआ। SMC concepts अब समझ आते हैं।"',
-    t2q: '"Hindi में explanation मिलती है — इससे बड़ी बात क्या होगी। Binance पर fearless trading कर रहा हूँ।"',
-    t3q: '"मुझे लगता था crypto बहुत मुश्किल है। Pavan bhai की community ने सब आसान कर दिया।"',
-    langTitle: "हम बोलते हैं<br/>आपकी भाषा", langSub: "किसी भी भाषा पर click करें",
-    ctaH2: "आज शुरू करो।<br/>कल का इंतज़ार क्यों?", ctaP: "Free account · No hidden charges · Expert guidance",
-    ctaBtn: "🚀 अभी Binance Join करो", tgFloat: "✈ Free Signals पाओ",
-    footerDisc: "Crypto trading में risk होता है। Invest wisely।"
-  },
-  en: {
-    navCta: "Join Binance ↗",
-    eyebrow: "Crypto Trading · Global",
-    h1: "First Trade.<br/>",
-    accent: "First Profit.",
-    sub: "Join World's #1 exchange Binance — expert signals, smart analysis, learn from scratch.",
-    btnP: "🚀 Create Free Binance Account",
-    btnS: "📲 Join Telegram Channel",
-    stat1: "Users", stat2: "Account Fee", stat3: "Daily Signals",
-    featTag: "// Why Choose Us", featTitle: "Smart Trading<br/>The Right Way",
-    f1t: "Daily Free Signals", f1d: "BTC, ETH, and altcoins with entry, target, and stop-loss every single day.",
-    f2t: "Smart Money Concepts", f2d: "Institutional methods — BOS, CHoCH, liquidity zones explained in simple language.",
-    f3t: "Binance — 100% Secure", f3d: "World's most trusted exchange with SAFU fund protection and industry-best security.",
-    f4t: "5 Languages Support", f4d: "Hindi, English, Marathi, Arabic, Spanish — trade without language barriers.",
-    sigTag: "// Live Signal Preview", sigTitle: "Our Signals<br/>Look Like This",
-    sigLock: "🔓 Full signal (SL + Premium alerts) →", sigLockLink: "Join Telegram →",
-    howTag: "// How to Start", howTitle: "3 Steps to<br/>Start Trading",
-    s1t: "Create Free Binance Account", s1d: "Join via our link — account ready in 5 minutes. KYC with Aadhaar/PAN or Passport.", s1l: "Create Account →",
-    s2t: "Join Telegram Channel", s2d: "Daily signals, chart analysis, and market updates — all completely free.",
-    s3t: "Make Your First Trade — Safely", s3d: "Start small. Follow our signals. Learn risk management step by step.",
-    testTag: "// Community", testTitle: "What Traders Say",
-    t1q: '"Made 18% profit in the very first month with Pavan\'s signals. SMC concepts are crystal clear now."',
-    t2q: '"Explanations in my language — nothing better than that. Trading on Binance fearlessly now."',
-    t3q: '"I thought crypto was very difficult. Pavan\'s community made everything simple and easy."',
-    langTitle: "We Speak<br/>Your Language", langSub: "Click any language to switch",
-    ctaH2: "Start Today.<br/>Why Wait?", ctaP: "Free account · No hidden charges · Expert guidance",
-    ctaBtn: "🚀 Join Binance Now", tgFloat: "✈ Get Free Signals",
-    footerDisc: "Crypto trading involves risk. Invest wisely."
-  },
-  mr: {
-    navCta: "Binance Join करा ↗",
-    eyebrow: "Crypto Trading · India",
-    h1: "पहिला Trade.<br/>",
-    accent: "पहिला Profit.",
-    sub: "जगातील #1 exchange Binance वर join करा — expert signals, smart analysis, आणि सुरुवातीपासून शिका।",
-    btnP: "🚀 Binance वर Free Account बनवा",
-    btnS: "📲 Telegram Channel Join करा",
-    stat1: "Users", stat2: "Account Fees", stat3: "Daily Signals",
-    featTag: "// का आमच्यासोबत", featTitle: "Smart Trading चा<br/>योग्य मार्ग",
-    f1t: "रोज Free Signals", f1d: "BTC, ETH, आणि altcoins साठी रोज entry, target, आणि stop-loss सह signals।",
-    f2t: "Smart Money Concepts", f2d: "Institutional trading methods — BOS, CHoCH, liquidity zones — सोप्या Marathi मध्ये।",
-    f3t: "Binance — 100% Secure", f3d: "जगातील सर्वात विश्वासू exchange, SAFU fund protection सह।",
-    f4t: "5 भाषांमध्ये Support", f4d: "Hindi, English, Marathi, Arabic, Spanish — भाषेची अडचण नाही।",
-    sigTag: "// Live Signal Preview", sigTitle: "असे येतात<br/>आमचे Signals",
-    sigLock: "🔓 Full signal साठी", sigLockLink: "Telegram join करा →",
-    howTag: "// सुरुवात कशी करावी", howTitle: "3 Steps मध्ये<br/>Trading सुरू करा",
-    s1t: "Binance वर Free Account बनवा", s1d: "आमच्या link द्वारे join करा — 5 मिनिटांत account तयार। KYC साठी Aadhaar/PAN पुरेसे।", s1l: "Account बनवा →",
-    s2t: "Telegram Channel Join करा", s2d: "Daily signals, chart analysis, आणि market updates — सर्व free।",
-    s3t: "पहिला Trade करा — Safely", s3d: "लहान amount पासून सुरुवात करा। आमचे signals follow करा।",
-    testTag: "// Community", testTitle: "Traders काय म्हणतात",
-    t1q: '"Pavan भाऊंच्या signals मुळे पहिल्याच महिन्यात 18% profit झाला। SMC concepts आता समजतात।"',
-    t2q: '"Marathi मध्ये explanation मिळते — यापेक्षा मोठी गोष्ट काय असेल। Binance वर fearless trading करतो।"',
-    t3q: '"मला वाटत होतं crypto खूप कठीण आहे। Pavan भाऊंच्या community ने सर्व सोपं केलं।"',
-    langTitle: "आम्ही बोलतो<br/>तुमची भाषा", langSub: "कोणत्याही भाषेवर click करा",
-    ctaH2: "आज सुरुवात करा।<br/>उद्याची वाट का?", ctaP: "Free account · कोणतेही hidden charges नाही",
-    ctaBtn: "🚀 आत्ता Binance Join करा", tgFloat: "✈ Free Signals मिळवा",
-    footerDisc: "Crypto trading मध्ये risk असते। Invest wisely।"
-  },
-  ar: {
-    navCta: "انضم إلى Binance ↗",
-    eyebrow: "تداول العملات المشفرة · عالمي",
-    h1: "أول صفقة.<br/>",
-    accent: "أول ربح.",
-    sub: "انضم إلى Binance أفضل منصة في العالم — إشارات احترافية، تحليل ذكي، تعلم من الصفر.",
-    btnP: "🚀 إنشاء حساب مجاني في Binance",
-    btnS: "📲 انضم لقناة Telegram",
-    stat1: "مستخدم", stat2: "رسوم الحساب", stat3: "إشارات يومية",
-    featTag: "// لماذا معنا", featTitle: "التداول الذكي<br/>بالطريقة الصحيحة",
-    f1t: "إشارات يومية مجانية", f1d: "إشارات يومية لـ BTC وETH والعملات البديلة مع نقاط الدخول والهدف ووقف الخسارة.",
-    f2t: "مفاهيم الأموال الذكية", f2d: "أساليب التداول المؤسسي — BOS وCHoCH ومناطق السيولة بشرح بسيط.",
-    f3t: "Binance — آمن 100%", f3d: "أكثر منصة موثوقة في العالم مع حماية صندوق SAFU.",
-    f4t: "دعم 5 لغات", f4d: "الهندية والإنجليزية والماراثية والعربية والإسبانية — تداول بلا حواجز لغوية.",
-    sigTag: "// معاينة الإشارة", sigTitle: "هكذا تبدو<br/>إشاراتنا",
-    sigLock: "🔓 للإشارة الكاملة →", sigLockLink: "انضم لـ Telegram →",
-    howTag: "// كيف تبدأ", howTitle: "3 خطوات<br/>لبدء التداول",
-    s1t: "إنشاء حساب مجاني في Binance", s1d: "انضم عبر رابطنا — الحساب جاهز في 5 دقائق.", s1l: "إنشاء حساب →",
-    s2t: "انضم لقناة Telegram", s2d: "إشارات يومية وتحليل مجاني كل يوم.",
-    s3t: "اجعل أول صفقة — بأمان", s3d: "ابدأ بمبلغ صغير. اتبع إشاراتنا. تعلم إدارة المخاطر.",
-    testTag: "// المجتمع", testTitle: "ماذا يقول المتداولون",
-    t1q: '"حققت 18% ربح في الشهر الأول مع إشارات Pavan. مفاهيم SMC أصبحت واضحة الآن."',
-    t2q: '"الشرح بلغتي — لا شيء أفضل من ذلك. أتداول الآن في Binance بجرأة."',
-    t3q: '"كنت أعتقد أن العملات المشفرة صعبة جداً. مجتمع Pavan جعل كل شيء سهلاً."',
-    langTitle: "نتحدث<br/>لغتك", langSub: "انقر على أي لغة للتبديل",
-    ctaH2: "ابدأ اليوم.<br/>لماذا الانتظار؟", ctaP: "حساب مجاني · بدون رسوم خفية",
-    ctaBtn: "🚀 انضم إلى Binance الآن", tgFloat: "✈ احصل على إشارات مجانية",
-    footerDisc: "ينطوي تداول العملات المشفرة على مخاطر. استثمر بحكمة."
-  },
-  es: {
-    navCta: "Unirse a Binance ↗",
-    eyebrow: "Trading de Cripto · Global",
-    h1: "Primer Trade.<br/>",
-    accent: "Primera Ganancia.",
-    sub: "Únete al exchange #1 del mundo Binance — señales expertas, análisis inteligente, aprende desde cero.",
-    btnP: "🚀 Crear Cuenta Gratis en Binance",
-    btnS: "📲 Unirse al Canal de Telegram",
-    stat1: "Usuarios", stat2: "Tarifa de Cuenta", stat3: "Señales Diarias",
-    featTag: "// Por Qué Elegirnos", featTitle: "Trading Inteligente<br/>De La Manera Correcta",
-    f1t: "Señales Diarias Gratis", f1d: "BTC, ETH y altcoins con entrada, objetivo y stop-loss cada día.",
-    f2t: "Conceptos de Dinero Inteligente", f2d: "Métodos institucionales — BOS, CHoCH, zonas de liquidez explicados simplemente.",
-    f3t: "Binance — 100% Seguro", f3d: "El exchange más confiable del mundo con protección del fondo SAFU.",
-    f4t: "Soporte en 5 Idiomas", f4d: "Hindi, Inglés, Marathi, Árabe, Español — opera sin barreras de idioma.",
-    sigTag: "// Vista Previa de Señal", sigTitle: "Nuestras Señales<br/>Se Ven Así",
-    sigLock: "🔓 Señal completa (SL + alertas Premium) →", sigLockLink: "Unirse a Telegram →",
-    howTag: "// Cómo Empezar", howTitle: "3 Pasos Para<br/>Comenzar a Operar",
-    s1t: "Crear Cuenta Gratis en Binance", s1d: "Únete a través de nuestro enlace — cuenta lista en 5 minutos.", s1l: "Crear Cuenta →",
-    s2t: "Unirse al Canal de Telegram", s2d: "Señales diarias, análisis de gráficos y actualizaciones — todo gratis.",
-    s3t: "Haz Tu Primer Trade — Con Seguridad", s3d: "Empieza con poco. Sigue nuestras señales. Aprende gestión de riesgo.",
-    testTag: "// Comunidad", testTitle: "Lo Que Dicen Los Traders",
-    t1q: '"Obtuve 18% de ganancia en el primer mes con las señales de Pavan. Los conceptos SMC ahora son claros."',
-    t2q: '"Explicaciones en mi idioma — nada mejor que eso. Opero en Binance con confianza ahora."',
-    t3q: '"Pensaba que las criptos eran muy difíciles. La comunidad de Pavan lo hizo todo fácil."',
-    langTitle: "Hablamos<br/>Tu Idioma", langSub: "Haz clic en cualquier idioma para cambiar",
-    ctaH2: "Empieza Hoy.<br/>¿Por Qué Esperar?", ctaP: "Cuenta gratis · Sin cargos ocultos · Guía experta",
-    ctaBtn: "🚀 Unirse a Binance Ahora", tgFloat: "✈ Señales Gratis",
-    footerDisc: "El trading de criptos implica riesgo. Invierte con sabiduría."
-  }
-};
+  const dict = {
+    hi: {
+      navCta: "Join Binance ↗", eyebrow: "Crypto Trading · India", h1: "पहला Trade.<br/><span class='accent'>पहला Profit.</span>", sub: "दुनिया के नंबर 1 एक्सचेंज Binance से जुड़ें — एक्सपर्ट सिग्नल्स, स्मार्ट एनालिसिस और शुरुआत से सीखें।", btn1: "🚀 Free Binance अकाउंट बनाएं", btn2: "📲 Telegram चैनल जॉइन करें", stat1: "यूज़र्स", stat2: "अकाउंट फीस", stat3: "फ्री सिग्नल्स", fTag: "// हमारे साथ क्यों जुड़ें", fTitle: "Smart Trading का<br/>सही और सुरक्षित तरीका", f1t: "डेली फ्री सिग्नल्स", f1d: "BTC, ETH और मुख्य ऑल्टकॉइन्स के सटीक एंट्री, टारगेट और स्टॉप-लॉस रोज पाएं।", f2t: "Smart Money Concepts", f2d: "इंस्टीट्यूशनल ट्रेडिंग मेथड्स — BOS, CHoCH और लिक्विडिटी ज़ोन सीखें सरल भाषा में।", f3t: "Binance — 100% सुरक्षित", f3d: "दुनिया का सबसे भरोसेमंद एक्सचेंज जहां SAFU फंड सिक्योरिटी से आपका फंड हमेशा सेफ रहता है।", f4t: "5 भाषाओं का सपोर्ट", f4d: "हिंदी, इंग्लिश, मराठी, अरबी और स्पैनिश — बिना किसी भाषा की बाधा के ट्रेड करें।"
+    },
+    en: {
+      navCta: "Join Binance ↗", eyebrow: "Crypto Trading · India", h1: "First Trade.<br/><span class='accent'>First Profit.</span>", sub: "Join World's #1 exchange Binance — expert signals, smart analysis, learn from scratch.", btn1: "🚀 Create Free Binance Account", btn2: "📲 Join Telegram Channel", stat1: "Users", stat2: "Account Fee", stat3: "Free Signals", fTag: "// Why Us", fTitle: "Smart Trading<br/>The Right Way", f1t: "Daily Free Signals", f1d: "BTC, ETH, and altcoins with entry, target, and stop-loss every day.", f2t: "Smart Money Concepts", f2d: "Institutional trading methods — BOS, CHoCH, liquidity zones explained simply.", f3t: "Binance — 100% Secure", f3d: "World's most trusted exchange with SAFU fund protection and best security.", f4t: "5 Languages Support", f4d: "Hindi, English, Marathi, Arabic, Spanish — trade without language barriers."
+    },
+    mr: {
+      navCta: "Binance जॉइन करा ↗", eyebrow: "क्रिप्टो ट्रेडिंग · इंडिया", h1: "पहिले Trade.<br/><span class='accent'>पहिले Profit.</span>", sub: "जगातील नंबर 1 एक्सचेंज Binance शी जोडा — तज्ञ सिग्नल, स्मार्ट विश्लेषण आणि सुरुवातीपासून शिका.", btn1: "🚀 मोफत Binance अकाउंट बनवा", btn2: "📲 Telegram चॅनेल जॉइन करा", stat1: "युजर्स", stat2: "अकाउंट फी", stat3: "फ्री सिग्नल्स", fTag: "// आमच्यासोबत का जोडावे", fTitle: "Smart Trading ची<br/>योग्य आणि सुरक्षित पद्धत", f1t: "रोज मोफत सिग्नल्स", f1d: "BTC, ETH आणि मुख्य ऑल्टकॉइन्सचे अचूक एंट्री, टार्गेट आणि स्टॉप-लॉस रोज मिळवा.", f2t: "Smart Money Concepts", f2d: "इन्स्टिट्यूशनल ट्रेडिंग पद्धती — BOS, CHoCH आणि लिक्विडिटी झोन सोप्या भाषेत शिका.", f3t: "Binance — 100% सुरक्षित", f3d: "जगातील सर्वात विश्वासार्ह एक्सचेंज जिथे SAFU फंड सुरक्षिततेमुळे तुमचा फंड नेहमी सेफ राहतो.", f4t: "5 भाषांचे समर्थन", f4d: "हिंदी, इंग्रजी, मराठी, अरबी आणि स्पॅनिश — कोणत्याही भाषेच्या अडथळ्याशिवाय ट्रेड करा."
+    },
+    ar: {
+      navCta: "انضم إلى بينانس ↗", eyebrow: "تداول العملات المشفرة · الهند", h1: "الصفقة الأولى.<br/><span class='accent'>الربح الأول.</span>", sub: "انضم إلى المنصة رقم 1 في العالم Binance — إشارات الخبراء، والتحليل الذكي، وتعلم من الصفر.", btn1: "🚀 إنشاء حساب بينانس مجاني", btn2: "📲 انضم إلى قناة التليجرام", stat1: "المستخدمون", stat2: "رسوم الحساب", stat3: "إشارات مجانية", fTag: "// لماذا نحن", fTitle: "التداول الذكي<br/>بالطريقة الصحيحة", f1t: "إشارات مجانية يومية", f1d: "احصل على نقاط دخول وأهداف ووقف خسارة دقيقة لعملات BTC وETH والعملات البديلة يوميًا.", f2t: "مفاهيم الأموال الذكية", f2d: "أساليب التداول المؤسسي — شرح مناطق السيولة وعمليات BOS و CHoCH ببساطة.", f3t: "Binance — آمن 100%", f3d: "المنصة الأكثر موثوقية في العالم مع حماية أموال SAFU وأفضل أمان في هذا المجال.", f4t: "دعم 5 لغات", f4d: "الهندية والإنجليزية والمراثية والعربية والإسبانية — تداول بدون حواجز لغوية."
+    },
+    es: {
+      navCta: "Regístrate en Binance ↗", eyebrow: "Crypto Trading · India", h1: "Primer Trade.<br/><span class='accent'>Primer Profit.</span>", sub: "Únase al intercambio número 1 del mundo, Binance: señales expertas, análisis inteligente y aprenda desde cero.", btn1: "🚀 Crear Cuenta Gratuita de Binance", btn2: "📲 Unirse al Canal de Telegram", stat1: "Usuarios", stat2: "Tarifa de Cuenta", stat3: "Señales Gratis", fTag: "// Por Qué Elegirnos", fTitle: "Trading Inteligente<br/>De La Manera Correcta", f1t: "Señales Gratuitas Diarias", f1d: "Obtenga entradas, objetivos y stop-loss precisos para BTC, ETH y altcoins todos los días.", f2t: "Smart Money Concepts", f2d: "Métodos de trading institucional: BOS, CHoCH y zonas de liquidez explicados de forma sencilla.", f3t: "Binance — 100% Seguro", f3d: "El intercambio más confiable del mundo con protección de fondos SAFU y la mejor seguridad.", f4t: "Soporte en 5 Idiomas", f4d: "Hindi, inglés, maratí, árabe y español: opere sin barreras idiomáticas."
+    }
+  };
 
-function setLang(lang) {
-  const t = T[lang];
-  if (!t) return;
-  // RTL for Arabic
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.documentElement.lang = lang;
-  // Update buttons
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-  // Update content
-  const s = (id, html) => { const el = document.getElementById(id); if(el) el.innerHTML = html; };
-  s('nav-cta', t.navCta);
-  s('hero-eyebrow', t.eyebrow);
-  s('hero-h1', t.h1 + '<span class="accent" id="hero-accent">' + t.accent + '</span>');
-  s('hero-sub', t.sub);
-  s('btn-primary', t.btnP);
-  s('btn-secondary', t.btnS);
-  s('stat1', t.stat1); s('stat2', t.stat2); s('stat3', t.stat3);
-  s('feat-tag', t.featTag); s('feat-title', t.featTitle);
-  s('f1t', t.f1t); s('f1d', t.f1d);
-  s('f2t', t.f2t); s('f2d', t.f2d);
-  s('f3t', t.f3t); s('f3d', t.f3d);
-  s('f4t', t.f4t); s('f4d', t.f4d);
-  s('sig-tag', t.sigTag); s('sig-title', t.sigTitle);
-  s('sig-lock', '🔓 ' + t.sigLock + ' <a href="https://t.me/GlobalTraderPavan" target="_blank" style="color:var(--gold);text-decoration:none">' + t.sigLockLink + '</a>');
-  s('how-tag', t.howTag); s('how-title', t.howTitle);
-  s('s1t', t.s1t); s('s1d', t.s1d); s('s1l', t.s1l);
-  s('s2t', t.s2t); s('s2d', t.s2d);
-  s('s3t', t.s3t); s('s3d', t.s3d);
-  s('test-tag', t.testTag); s('test-title', t.testTitle);
-  s('t1q', t.t1q); s('t2q', t.t2q); s('t3q', t.t3q);
-  s('lang-title', t.langTitle); s('lang-sub', t.langSub);
-  s('cta-h2', t.ctaH2); s('cta-p', t.ctaP); s('cta-btn', t.ctaBtn);
-  s('tg-float', t.tgFloat);
-  s('footer-disc', t.footerDisc);
-}
-
-// Ticker
-const coins = [
-  {sym:'BTC',price:'67,482',change:'+2.4%',up:true},
-  {sym:'ETH',price:'3,521',change:'+1.8%',up:true},
-  {sym:'BNB',price:'612',change:'+0.9%',up:true},
-  {sym:'SOL',price:'178',change:'-0.4%',up:false},
-  {sym:'XRP',price:'0.612',change:'+3.1%',up:true},
-  {sym:'ADA',price:'0.48',change:'-1.2%',up:false},
-  {sym:'DOGE',price:'0.168',change:'+5.2%',up:true},
-  {sym:'AVAX',price:'38.4',change:'+2.0%',up:true},
-];
-const track = document.getElementById('ticker');
-const doubled = [...coins,...coins];
-track.innerHTML = doubled.map(c=>`<div class="ticker-item"><span class="sym">${c.sym}/USDT</span><span>$${c.price}</span><span class="${c.up?'up':'down'}">${c.change}</span></div>`).join('');
-
-// Default Hindi
-setLang('hi');
-</script>
-<script>
-async function updateLiveSignal() {
-  try {
-    const r = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT');
-    const d = await r.json();
-    const price = parseFloat(d.lastPrice);
-    const chg = parseFloat(d.priceChangePercent);
-    const dir = chg > 0 ? 'LONG 📈' : 'SHORT 📉';
+  function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
     
-    document.querySelector('.signal-title').textContent = 'BTCUSDT · ' + dir;
-    document.getElementById('live-entry').textContent = 
-      '$' + (price*0.998).toLocaleString('en-US',{maximumFractionDigits:0}) + 
-      ' – $' + (price*1.002).toLocaleString('en-US',{maximumFractionDigits:0});
-    document.getElementById('live-t1').textContent = 
-      '$' + (price*1.02).toLocaleString('en-US',{maximumFractionDigits:0});
-    document.getElementById('live-t2').textContent = 
-      '$' + (price*1.04).toLocaleString('en-US',{maximumFractionDigits:0});
-  } catch(e) { console.log('Price fetch error:', e); }
-}
-updateLiveSignal();
-setInterval(updateLiveSignal, 30000); // हर 30 seconds update
+    document.getElementById('nav-cta').innerText = dict[lang].navCta;
+    document.getElementById('hero-eyebrow').innerText = dict[lang].eyebrow;
+    document.getElementById('hero-h1').innerHTML = dict[lang].h1;
+    document.getElementById('hero-sub').innerText = dict[lang].sub;
+    document.getElementById('btn-primary').innerText = dict[lang].btn1;
+    document.getElementById('btn-secondary').innerText = dict[lang].btn2;
+    document.getElementById('stat1').innerText = dict[lang].stat1;
+    document.getElementById('stat2').innerText = dict[lang].stat2;
+    document.getElementById('stat3').innerText = dict[lang].stat3;
+    document.getElementById('feat-tag').innerText = dict[lang].fTag;
+    document.getElementById('feat-title').innerHTML = dict[lang].fTitle;
+    document.getElementById('f1t').innerText = dict[lang].f1t;
+    document.getElementById('f1d').innerText = dict[lang].f1d;
+    document.getElementById('f2t').innerText = dict[lang].f2t;
+    document.getElementById('f2d').innerText = dict[lang].f2d;
+    document.getElementById('f3t').innerText = dict[lang].f3t;
+    document.getElementById('f3d').innerText = dict[lang].f3d;
+    document.getElementById('f4t').innerText = dict[lang].f4t;
+    document.getElementById('f4d').innerText = dict[lang].f4d;
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    const isLight = document.body.classList.contains('light-theme');
+    document.querySelector('.theme-toggle').innerHTML = isLight ? '<i class="fa-solid fa-sun"></i> Theme Toggle' : '<i class="fa-solid fa-moon"></i> Theme Toggle';
+  }
 </script>
+
 </body>
 </html>
