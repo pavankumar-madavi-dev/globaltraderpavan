@@ -197,6 +197,13 @@ def home():
   <div class="loading">⏳ Live prices load ho rahi hain...</div>
 </div>
 
+<div style="margin-bottom:20px;">
+  <div class="card" style="margin-bottom:12px;">
+    <div class="card-title">🤖 7-Agent Status</div>
+    <div id="agents-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:10px;"></div>
+  </div>
+</div>
+
 <footer>
   © 2026 Pavankumar Madavi |
   niDar Marketing And Services |
@@ -277,8 +284,28 @@ async function loadPrices() {
   }
 }
 
+async function loadAgents() {
+  try {
+    const r = await fetch('/api/agents');
+    const data = await r.json();
+    const grid = document.getElementById('agents-grid');
+    grid.innerHTML = '';
+    data.forEach(ag => {
+      grid.innerHTML += `
+        <div style="background:#1a1a2e;border:1px solid #2A2A3A;border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:22px;">${ag.icon}</div>
+          <div style="font-size:11px;color:#F5A623;font-weight:700;margin-top:4px;">${ag.id}</div>
+          <div style="font-size:10px;color:#6B6B80;margin-top:2px;">${ag.name}</div>
+          <div style="font-size:10px;color:#00C896;margin-top:4px;">● ACTIVE</div>
+        </div>`;
+    });
+  } catch(e) { console.log("Agents error:", e); }
+}
+
 loadPrices();
+loadAgents();
 setInterval(loadPrices, 30000);
+setInterval(loadAgents, 60000);
 </script>
 </body>
 </html>
@@ -296,6 +323,18 @@ def api_prices():
             result.append(data)
     return jsonify(result)
 
+
+@app.route("/api/agents")
+def api_agents():
+    return jsonify([
+        {"id": "AG1", "name": "Market Analysis", "status": "active", "icon": "📊"},
+        {"id": "AG2", "name": "Options Flow", "status": "active", "icon": "📈"},
+        {"id": "AG3", "name": "Risk Manager", "status": "active", "icon": "🛡️"},
+        {"id": "AG4", "name": "Signal Sender", "status": "active", "icon": "📡"},
+        {"id": "AG5", "name": "News Engine", "status": "active", "icon": "📰"},
+        {"id": "AG6", "name": "Order Flow", "status": "active", "icon": "🔄"},
+        {"id": "AG7", "name": "Fundamentals", "status": "active", "icon": "🧠"}
+    ])
 
 @app.route("/health")
 def health():
