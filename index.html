@@ -184,16 +184,39 @@
 
 <div class="ticker-wrap">
   <div class="ticker-track" id="ticker">
-    <div class="ticker-item"><span class="sym">BTC/USDT</span><span class="text-green">$67,482 (+2.4%)</span></div>
-    <div class="ticker-item"><span class="sym">ETH/USDT</span><span class="text-green">$3,540 (+1.8%)</span></div>
-    <div class="ticker-item"><span class="sym">BNB/USDT</span><span class="text-green">$585.2 (+3.1%)</span></div>
-    <div class="ticker-item"><span class="sym">SOL/USDT</span><span class="text-green">$178.4 (+4.2%)</span></div>
-    <div class="ticker-item"><span class="sym">BTC/USDT</span><span class="text-green">$67,482 (+2.4%)</span></div>
-    <div class="ticker-item"><span class="sym">ETH/USDT</span><span class="text-green">$3,540 (+1.8%)</span></div>
-    <div class="ticker-item"><span class="sym">BNB/USDT</span><span class="text-green">$585.2 (+3.1%)</span></div>
-    <div class="ticker-item"><span class="sym">SOL/USDT</span><span class="text-green">$178.4 (+4.2%)</span></div>
+    <div class="ticker-item"><span class="sym">BTC/USDT</span><span id="t-BTC">Loading...</span></div>
+    <div class="ticker-item"><span class="sym">ETH/USDT</span><span id="t-ETH">Loading...</span></div>
+    <div class="ticker-item"><span class="sym">BNB/USDT</span><span id="t-BNB">Loading...</span></div>
+    <div class="ticker-item"><span class="sym">SOL/USDT</span><span id="t-SOL">Loading...</span></div>
+    <div class="ticker-item"><span class="sym">BTC/USDT</span><span id="t-BTC2">--</span></div>
+    <div class="ticker-item"><span class="sym">ETH/USDT</span><span id="t-ETH2">--</span></div>
+    <div class="ticker-item"><span class="sym">BNB/USDT</span><span id="t-BNB2">--</span></div>
+    <div class="ticker-item"><span class="sym">SOL/USDT</span><span id="t-SOL2">--</span></div>
   </div>
 </div>
+<script>
+async function liveTicker() {
+  const coins = ["BTCUSDT","ETHUSDT","BNBUSDT","SOLUSDT"];
+  const ids = ["BTC","ETH","BNB","SOL"];
+  try {
+    const res = await fetch("https://api.binance.com/api/v3/ticker/24hr?symbols=" + JSON.stringify(coins));
+    const data = await res.json();
+    data.forEach((d, i) => {
+      const price = parseFloat(d.lastPrice).toLocaleString("en-US", {maximumFractionDigits:2});
+      const chg = parseFloat(d.priceChangePercent).toFixed(2);
+      const color = chg >= 0 ? "#0ecb81" : "#ea4335";
+      const sign = chg >= 0 ? "+" : "";
+      const html = `<span style="color:${color}">$${price} (${sign}${chg}%)</span>`;
+      const el1 = document.getElementById("t-" + ids[i]);
+      const el2 = document.getElementById("t-" + ids[i] + "2");
+      if(el1) el1.innerHTML = html;
+      if(el2) el2.innerHTML = html;
+    });
+  } catch(e) { console.log("Ticker error:", e); }
+}
+liveTicker();
+setInterval(liveTicker, 30000);
+</script>
 
 <nav>
   <div class="logo">Global<span>Trader</span>Pavan</div>
