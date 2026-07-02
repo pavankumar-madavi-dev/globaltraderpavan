@@ -1,69 +1,179 @@
 # ==========================================
 # Agent 1 — Market Data Fetcher (Improved)
 # GlobalTraderPavan Trading System
+# Now with automatic CoinGecko fallback if
+# Binance is geo-blocked / rate-limited from
+# Railway's servers.
 # ==========================================
 
 import requests
 
+# Binance symbol -> CoinGecko id mapping (extend as needed)
+COINGECKO_IDS = {
+    "BTCUSDT": "bitcoin",
+    "ETHUSDT": "ethereum",
+    "BNBUSDT": "binancecoin",
+    "SOLUSDT": "solana",
+}
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/124.0 Safari/537.36"
+}
+
+
+def _calc_rsi(closes):
+    gains = []
+    losses = []
+
+    for i in range(1, len(closes)):
+        diff = closes[i] - closes[i - 1]
+
+        if diff > 0:
+            gains.append(diff)
+            losses.append(0)
+        else:
+            gains.append(0)
+            losses.append(abs(diff))
+
+    avg_gain = sum(gains[-14:]) / 14
+    avg_loss = sum(losses[-14:]) / 14
+
+    if avg_loss == 0:
+        return 100
+
+    rs = avg_gain / avg_loss
+    return round(100 - (100 / (1 + rs)), 2)
+
+
+def _get_from_binance(symbol):
+    url = f"https://api.binance.com/api/v3/ticker/24hr?symbol={symbol}"
+    resp = requests.get(url, headers=HEADERS, timeout=10)
+
+    if resp.status_code != 200:
+        raise Exception(
+            f"Binance HTTP {resp.status_code}: {resp.text[:200]}"
+        )
+
+    r = resp.json()
+
+    if "lastPrice" not in r:
+        raise Exception(f"Binance blocked/unexpected response: {r}")
+
+    price = float(r["lastPrice"])
+    change = float(r["priceChangePercent"])
+    volume = float(r["volume"])
+    high = float(r["highPrice"])
+    low = float(r["lowPrice"])
+
+    kresp = requests.get(
+        f"https://api.binance.com/api/v3/klines"
+        f"?symbol={symbol}&interval=1h&limit=15",
+        headers=HEADERS,
+        timeout=10
+    )
+
+    if kresp.status_code != 200:
+        raise Exception(
+            f"Binance klines HTTP {kresp.status_code}: {kresp.text[:200]}"
+        )
+
+    klines = kresp.json()
+    closes = [float(x[4]) for x in klines]
+    rsi = _calc_rsi(closes)
+
+    return {
+        "status": "ok",
+        "symbol": symbol,
+        "price": round(price, 2),
+        "change": round(change, 2),
+        "volume": round(volume, 2),
+        "high": round(high, 2),
+        "low": round(low, 2),
+        "rsi": rsi,
+        "source": "binance"
+    }
+
+
+def _get_from_coingecko(symbol):
+    coin_id = COINGECKO_IDS.get(symbol)
+
+    if not coin_id:
+        raise Exception(f"No CoinGecko mapping for {symbol}")
+
+    price_url = (
+        f"https://api.coingecko.com/api/v3/simple/price"
+        f"?ids={coin_id}&vs_currencies=usd"
+        f"&include_24hr_change=true&include_24hr_vol=true"
+    )
+
+    resp = requests.get(price_url, headers=HEADERS, timeout=10)
+
+    if resp.status_code != 200:
+        raise Exception(
+            f"CoinGecko HTTP {resp.status_code}: {resp.text[:200]}"
+        )
+
+    data = resp.json()[coin_id]
+
+    price = float(data["usd"])
+    change = float(data.get("usd_24h_change", 0.0))
+    volume = float(data.get("usd_24h_vol", 0.0))
+
+    chart_url = (
+        f"https://api.coingecko.com/api/v3/coins/{coin_id}"
+        f"/market_chart?vs_currency=usd&days=1"
+    )
+
+    cresp = requests.get(chart_url, headers=HEADERS, timeout=10)
+
+    if cresp.status_code != 200:
+        raise Exception(
+            f"CoinGecko chart HTTP {cresp.status_code}: {cresp.text[:200]}"
+        )
+
+    prices = cresp.json().get("prices", [])
+    closes = [p[1] for p in prices]
+
+    rsi = _calc_rsi(closes) if len(closes) > 14 else 50.0
+
+    return {
+        "status": "ok",
+        "symbol": symbol,
+        "price": round(price, 2),
+        "change": round(change, 2),
+        "volume": round(volume, 2),
+        "high": round(max(closes), 2) if closes else price,
+        "low": round(min(closes), 2) if closes else price,
+        "rsi": rsi,
+        "source": "coingecko"
+    }
+
 
 def get_price_and_rsi(symbol="BTCUSDT"):
     try:
-        url = f"https://api.binance.com/api/v3/ticker/24hr?symbol={symbol}"
-        r = requests.get(url, timeout=10).json()
+        return _get_from_binance(symbol)
 
-        price = float(r["lastPrice"])
-        change = float(r["priceChangePercent"])
-        volume = float(r["volume"])
-        high = float(r["highPrice"])
-        low = float(r["lowPrice"])
+    except Exception as binance_error:
 
-        klines = requests.get(
-            f"https://api.binance.com/api/v3/klines"
-            f"?symbol={symbol}&interval=1h&limit=15",
-            timeout=10
-        ).json()
+        try:
+            result = _get_from_coingecko(symbol)
+            print(
+                f"⚠️ {symbol}: Binance failed "
+                f"({binance_error}), used CoinGecko fallback"
+            )
+            return result
 
-        closes = [float(x[4]) for x in klines]
-
-        gains = []
-        losses = []
-
-        for i in range(1, len(closes)):
-            diff = closes[i] - closes[i - 1]
-
-            if diff > 0:
-                gains.append(diff)
-                losses.append(0)
-            else:
-                gains.append(0)
-                losses.append(abs(diff))
-
-        avg_gain = sum(gains[-14:]) / 14
-        avg_loss = sum(losses[-14:]) / 14
-
-        if avg_loss == 0:
-            rsi = 100
-        else:
-            rs = avg_gain / avg_loss
-            rsi = round(100 - (100 / (1 + rs)), 2)
-
-        return {
-            "status": "ok",
-            "symbol": symbol,
-            "price": round(price, 2),
-            "change": round(change, 2),
-            "volume": round(volume, 2),
-            "high": round(high, 2),
-            "low": round(low, 2),
-            "rsi": rsi
-        }
-
-    except Exception as e:
-        return {
-            "status": "error",
-            "symbol": symbol,
-            "message": str(e)
-        }
+        except Exception as coingecko_error:
+            return {
+                "status": "error",
+                "symbol": symbol,
+                "message": (
+                    f"Binance: {binance_error} | "
+                    f"CoinGecko: {coingecko_error}"
+                )
+            }
 
 
 def get_funding_rate(symbol="BTCUSDT"):
@@ -73,11 +183,11 @@ def get_funding_rate(symbol="BTCUSDT"):
             f"?symbol={symbol}&limit=1"
         )
 
-        data = requests.get(url, timeout=10).json()
+        data = requests.get(url, headers=HEADERS, timeout=10).json()
 
         return round(float(data[0]["fundingRate"]) * 100, 4)
 
-    except:
+    except Exception:
         return 0.0
 
 
@@ -85,11 +195,11 @@ def get_open_interest(symbol="BTCUSDT"):
     try:
         url = f"https://fapi.binance.com/fapi/v1/openInterest?symbol={symbol}"
 
-        data = requests.get(url, timeout=10).json()
+        data = requests.get(url, headers=HEADERS, timeout=10).json()
 
         return round(float(data["openInterest"]), 2)
 
-    except:
+    except Exception:
         return 0.0
 
 
@@ -113,7 +223,6 @@ def get_market_direction(rsi, change, funding):
     elif rsi <= 45:
         score -= 1
 
-
     # ==========================
     # Price Momentum
     # ==========================
@@ -130,7 +239,6 @@ def get_market_direction(rsi, change, funding):
     elif change <= -1:
         score -= 1
 
-
     # ==========================
     # Funding Rate
     # ==========================
@@ -140,7 +248,6 @@ def get_market_direction(rsi, change, funding):
 
     elif funding < -0.01:
         score -= 1
-
 
     # ==========================
     # Final Decision
@@ -178,7 +285,7 @@ def run_agent1(symbol="BTCUSDT"):
         funding
     )
 
-    avg_volume = market["volume"] * 0.8
+    avg_volume = market["volume"] * 0.8 if market["volume"] else 1
     volume_ratio = round(
         (market["volume"] / avg_volume) * 100,
         2
@@ -197,7 +304,8 @@ def run_agent1(symbol="BTCUSDT"):
         "funding_rate": funding,
         "open_interest": oi,
         "direction": direction,
-        "strength": strength
+        "strength": strength,
+        "source": market.get("source", "unknown")
     }
 
 
@@ -217,7 +325,7 @@ if __name__ == "__main__":
         if result["status"] == "ok":
 
             print(f"""
-{result['symbol']}:
+{result['symbol']} (source: {result['source']}):
 
   Price     : ${result['price']:,}
   Change    : {result['change']}%
