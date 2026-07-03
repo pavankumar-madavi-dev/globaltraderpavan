@@ -1,15 +1,14 @@
 # ==========================================
 # Agent 1 — Market Data Fetcher (Improved)
 # GlobalTraderPavan Trading System
-# Now with automatic CoinGecko fallback if
-# Binance is geo-blocked / rate-limited from
-# Railway's servers.
+# Now with automatic CoinGecko fallback,
+# throttling, and retry-on-429 to handle
+# Binance geo-block + CoinGecko rate limits.
 # ==========================================
 
 import requests
 import time
 
-# Binance symbol -> CoinGecko id mapping (extend as needed)
 COINGECKO_IDS = {
     "BTCUSDT": "bitcoin",
     "ETHUSDT": "ethereum",
@@ -23,13 +22,17 @@ HEADERS = {
                   "Chrome/124.0 Safari/537.36"
 }
 
-# ==========================================
-# Simple in-memory cache to avoid hitting
-# CoinGecko's free-tier rate limit (429).
-# Cached for 90 seconds per symbol.
-# ==========================================
 _CACHE = {}
-_CACHE_TTL = 90  # seconds
+_CACHE_TTL = 90
+_LAST_CG_CALL = {"time": 0}
+_MIN_GAP = 8
+
+
+def _throttle_coingecko():
+    elapsed = time.time() - _LAST_CG_CALL["time"]
+    if elapsed < _MIN_GAP:
+        time.sleep(_MIN_GAP - elapsed)
+    _LAST_CG_CALL["time"] = time.time()
 
 
 def _get_cached(key):
@@ -133,7 +136,13 @@ def _get_from_coingecko(symbol):
         f"&include_24hr_change=true&include_24hr_vol=true"
     )
 
+    _throttle_coingecko()
     resp = requests.get(price_url, headers=HEADERS, timeout=10)
+
+    if resp.status_code == 429:
+        time.sleep(10)
+        _throttle_coingecko()
+        resp = requests.get(price_url, headers=HEADERS, timeout=10)
 
     if resp.status_code != 200:
         raise Exception(
@@ -146,14 +155,18 @@ def _get_from_coingecko(symbol):
     change = float(data.get("usd_24h_change", 0.0))
     volume = float(data.get("usd_24h_vol", 0.0))
 
-    time.sleep(1.5)  # avoid bursting CoinGecko's rate limit
-
     chart_url = (
         f"https://api.coingecko.com/api/v3/coins/{coin_id}"
         f"/market_chart?vs_currency=usd&days=1"
     )
 
+    _throttle_coingecko()
     cresp = requests.get(chart_url, headers=HEADERS, timeout=10)
+
+    if cresp.status_code == 429:
+        time.sleep(10)
+        _throttle_coingecko()
+        cresp = requests.get(chart_url, headers=HEADERS, timeout=10)
 
     if cresp.status_code != 200:
         raise Exception(
