@@ -7,6 +7,7 @@
 # ==========================================
 
 import requests
+import time
 
 # Binance symbol -> CoinGecko id mapping (extend as needed)
 COINGECKO_IDS = {
@@ -21,6 +22,25 @@ HEADERS = {
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                   "Chrome/124.0 Safari/537.36"
 }
+
+# ==========================================
+# Simple in-memory cache to avoid hitting
+# CoinGecko's free-tier rate limit (429).
+# Cached for 90 seconds per symbol.
+# ==========================================
+_CACHE = {}
+_CACHE_TTL = 90  # seconds
+
+
+def _get_cached(key):
+    entry = _CACHE.get(key)
+    if entry and (time.time() - entry["time"]) < _CACHE_TTL:
+        return entry["data"]
+    return None
+
+
+def _set_cache(key, data):
+    _CACHE[key] = {"data": data, "time": time.time()}
 
 
 def _calc_rsi(closes):
@@ -97,6 +117,11 @@ def _get_from_binance(symbol):
 
 
 def _get_from_coingecko(symbol):
+    cache_key = f"cg_{symbol}"
+    cached = _get_cached(cache_key)
+    if cached:
+        return cached
+
     coin_id = COINGECKO_IDS.get(symbol)
 
     if not coin_id:
@@ -121,6 +146,8 @@ def _get_from_coingecko(symbol):
     change = float(data.get("usd_24h_change", 0.0))
     volume = float(data.get("usd_24h_vol", 0.0))
 
+    time.sleep(1.5)  # avoid bursting CoinGecko's rate limit
+
     chart_url = (
         f"https://api.coingecko.com/api/v3/coins/{coin_id}"
         f"/market_chart?vs_currency=usd&days=1"
@@ -138,7 +165,7 @@ def _get_from_coingecko(symbol):
 
     rsi = _calc_rsi(closes) if len(closes) > 14 else 50.0
 
-    return {
+    result = {
         "status": "ok",
         "symbol": symbol,
         "price": round(price, 2),
@@ -149,6 +176,9 @@ def _get_from_coingecko(symbol):
         "rsi": rsi,
         "source": "coingecko"
     }
+
+    _set_cache(cache_key, result)
+    return result
 
 
 def get_price_and_rsi(symbol="BTCUSDT"):
@@ -207,10 +237,6 @@ def get_market_direction(rsi, change, funding):
 
     score = 0
 
-    # ==========================
-    # RSI Trend Analysis
-    # ==========================
-
     if rsi >= 65:
         score += 3
 
@@ -222,10 +248,6 @@ def get_market_direction(rsi, change, funding):
 
     elif rsi <= 45:
         score -= 1
-
-    # ==========================
-    # Price Momentum
-    # ==========================
 
     if change >= 2:
         score += 2
@@ -239,19 +261,11 @@ def get_market_direction(rsi, change, funding):
     elif change <= -1:
         score -= 1
 
-    # ==========================
-    # Funding Rate
-    # ==========================
-
     if funding > 0.01:
         score += 1
 
     elif funding < -0.01:
         score -= 1
-
-    # ==========================
-    # Final Decision
-    # ==========================
 
     if score >= 4:
         return "LONG", "Strong"
