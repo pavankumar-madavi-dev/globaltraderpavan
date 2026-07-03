@@ -1,13 +1,13 @@
 # ==========================================
 # Agent 1 — Market Data Fetcher (Improved)
 # GlobalTraderPavan Trading System
-# Now with automatic CoinGecko fallback,
-# throttling, and retry-on-429 to handle
-# Binance geo-block + CoinGecko rate limits.
+# CoinGecko fallback + dedicated API key +
+# throttling + retry-on-429.
 # ==========================================
 
 import requests
 import time
+import os
 
 COINGECKO_IDS = {
     "BTCUSDT": "bitcoin",
@@ -21,6 +21,12 @@ HEADERS = {
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                   "Chrome/124.0 Safari/537.36"
 }
+
+COINGECKO_API_KEY = os.environ.get("COINGECKO_API_KEY", "")
+
+CG_HEADERS = dict(HEADERS)
+if COINGECKO_API_KEY:
+    CG_HEADERS["x-cg-demo-api-key"] = COINGECKO_API_KEY
 
 _CACHE = {}
 _CACHE_TTL = 90
@@ -137,12 +143,12 @@ def _get_from_coingecko(symbol):
     )
 
     _throttle_coingecko()
-    resp = requests.get(price_url, headers=HEADERS, timeout=10)
+    resp = requests.get(price_url, headers=CG_HEADERS, timeout=10)
 
     if resp.status_code == 429:
         time.sleep(10)
         _throttle_coingecko()
-        resp = requests.get(price_url, headers=HEADERS, timeout=10)
+        resp = requests.get(price_url, headers=CG_HEADERS, timeout=10)
 
     if resp.status_code != 200:
         raise Exception(
@@ -161,12 +167,12 @@ def _get_from_coingecko(symbol):
     )
 
     _throttle_coingecko()
-    cresp = requests.get(chart_url, headers=HEADERS, timeout=10)
+    cresp = requests.get(chart_url, headers=CG_HEADERS, timeout=10)
 
     if cresp.status_code == 429:
         time.sleep(10)
         _throttle_coingecko()
-        cresp = requests.get(chart_url, headers=HEADERS, timeout=10)
+        cresp = requests.get(chart_url, headers=CG_HEADERS, timeout=10)
 
     if cresp.status_code != 200:
         raise Exception(
