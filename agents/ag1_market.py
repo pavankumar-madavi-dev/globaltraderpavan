@@ -2,7 +2,7 @@
 # Agent 1 — Market Data Fetcher (Improved)
 # GlobalTraderPavan Trading System
 # CoinGecko fallback + dedicated API key +
-# throttling + retry-on-429.
+# throttling + retry-on-429 + real confidence.
 # ==========================================
 
 import requests
@@ -287,19 +287,19 @@ def get_market_direction(rsi, change, funding):
         score -= 1
 
     if score >= 4:
-        return "LONG", "Strong"
+        return "LONG", "Strong", score
 
     elif score >= 2:
-        return "LONG", "Moderate"
+        return "LONG", "Moderate", score
 
     elif score <= -4:
-        return "SHORT", "Strong"
+        return "SHORT", "Strong", score
 
     elif score <= -2:
-        return "SHORT", "Moderate"
+        return "SHORT", "Moderate", score
 
     else:
-        return "NEUTRAL", "Weak"
+        return "NEUTRAL", "Weak", score
 
 
 def run_agent1(symbol="BTCUSDT"):
@@ -312,11 +312,13 @@ def run_agent1(symbol="BTCUSDT"):
     funding = get_funding_rate(symbol)
     oi = get_open_interest(symbol)
 
-    direction, strength = get_market_direction(
+    direction, strength, score = get_market_direction(
         market["rsi"],
         market["change"],
         funding
     )
+
+    confidence = round(min(abs(score) / 6 * 100, 100), 1)
 
     avg_volume = market["volume"] * 0.8 if market["volume"] else 1
     volume_ratio = round(
@@ -338,6 +340,7 @@ def run_agent1(symbol="BTCUSDT"):
         "open_interest": oi,
         "direction": direction,
         "strength": strength,
+        "confidence": confidence,
         "source": market.get("source", "unknown")
     }
 
