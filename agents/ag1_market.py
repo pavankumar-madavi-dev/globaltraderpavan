@@ -2,12 +2,14 @@
 # Agent 1 — Market Data Fetcher (Improved)
 # GlobalTraderPavan Trading System
 # CoinGecko fallback + dedicated API key +
-# throttling + retry-on-429 + real confidence.
+# cross-process file-based throttle + real
+# confidence scoring.
 # ==========================================
 
 import requests
 import time
 import os
+import fcntl
 
 COINGECKO_IDS = {
     "BTCUSDT": "bitcoin",
@@ -30,15 +32,25 @@ if COINGECKO_API_KEY:
 
 _CACHE = {}
 _CACHE_TTL = 90
-_LAST_CG_CALL = {"time": 0}
-_MIN_GAP = 8
+_MIN_GAP = 3
+_THROTTLE_FILE = "/tmp/coingecko_throttle.lock"
 
 
 def _throttle_coingecko():
-    elapsed = time.time() - _LAST_CG_CALL["time"]
-    if elapsed < _MIN_GAP:
-        time.sleep(_MIN_GAP - elapsed)
-    _LAST_CG_CALL["time"] = time.time()
+    with open(_THROTTLE_FILE, "a+") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        try:
+            f.seek(0)
+            content = f.read().strip()
+            last_time = float(content) if content else 0
+            elapsed = time.time() - last_time
+            if elapsed < _MIN_GAP:
+                time.sleep(_MIN_GAP - elapsed)
+            f.seek(0)
+            f.truncate()
+            f.write(str(time.time()))
+        finally:
+            fcntl.flock(f, fcntl.LOCK_UN)
 
 
 def _get_cached(key):
