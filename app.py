@@ -9,6 +9,7 @@
 from flask import Flask, jsonify
 import sys
 import os
+import json
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "agents"))
 
@@ -99,7 +100,7 @@ def home():
   .agent-strip { padding:20px 16px; border-bottom:1px solid var(--glass-border); }
   .agent-strip-title { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; font-family:var(--mono); }
   .agent-nodes { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; }
-  .agent-node { flex-shrink:0; width:78px; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:12px; padding:12px 8px; text-align:center; }
+  .agent-node { flex-shrink:0; width:78px; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:12px; padding:12px 8px; text-align:center; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
   .agent-node .icon { font-size:20px; }
   .agent-node .id { font-family:var(--mono); font-size:11px; color:var(--gold); font-weight:700; margin-top:4px; }
   .agent-node .name { font-size:8.5px; color:var(--muted); margin-top:2px; line-height:1.3; }
@@ -109,14 +110,14 @@ def home():
   .section-title { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; font-family:var(--mono); }
 
   .exchange-rail { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .exchange-card { display:block; text-decoration:none; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:14px; padding:16px; position:relative; overflow:hidden; }
+  .exchange-card { display:block; text-decoration:none; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:14px; padding:16px; position:relative; overflow:hidden; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
   .exchange-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--accent-color); }
   .exchange-name { font-weight:800; font-size:14px; color:var(--text); }
   .exchange-tag { font-size:10.5px; color:var(--muted); margin-top:3px; }
   .exchange-cta { font-size:11px; color:var(--accent-color); font-weight:700; margin-top:10px; }
 
   .signal-grid { display:grid; grid-template-columns:1fr; gap:12px; }
-  .signal-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; overflow:hidden; }
+  .signal-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; overflow:hidden; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
   .signal-head { display:flex; justify-content:space-between; align-items:center; padding:14px 16px; background:rgba(243,186,47,0.06); border-bottom:1px solid var(--glass-border); }
   .signal-symbol { font-family:var(--mono); font-weight:800; font-size:15px; color:var(--gold); }
   .signal-source { font-size:9.5px; padding:3px 8px; border-radius:10px; font-weight:700; }
@@ -292,7 +293,7 @@ setLang(localStorage.getItem('gtp_lang') || 'hi');
 </script>
 </body>
 </html>
-""".replace("__EXCHANGES_JSON__", str(EXCHANGES).replace("'", '"'))
+""".replace("__EXCHANGES_JSON__", json.dumps(EXCHANGES))
 
 
 @app.route("/api/prices")
