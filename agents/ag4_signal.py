@@ -29,7 +29,6 @@ def send_signal(data):
     t1        = data.get("target1", 0)
     t2        = data.get("target2", 0)
 
-    # Emoji decide
     if direction == "LONG":
         emoji  = "🟢"
         side   = "📈"
@@ -72,6 +71,10 @@ def send_signal(data):
 ━━━━━━━━━━━━━━━━━━━━━
 """
 
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        print("❌ TELEGRAM_TOKEN or TELEGRAM_CHAT_ID missing from environment!")
+        return False
+
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {
         "chat_id":                TELEGRAM_CHAT_ID,
@@ -87,7 +90,7 @@ def send_signal(data):
             print(f"✅ Signal sent: {symbol} {direction}")
             return True
         else:
-            print(f"❌ Telegram error: {result}")
+            print(f"❌ Telegram error (send_signal): {result}")
             return False
     except Exception as e:
         print(f"❌ Send error: {e}")
@@ -96,6 +99,11 @@ def send_signal(data):
 
 def send_no_signal(reason="Market neutral"):
     """Jab signal nahi hai"""
+
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        print("❌ TELEGRAM_TOKEN or TELEGRAM_CHAT_ID missing from environment!")
+        return False
+
     now = datetime.now().strftime("%d %b %Y, %I:%M %p IST")
     message = f"""
 ⚪ *Market Update — GlobalTraderPavan*
@@ -116,10 +124,17 @@ def send_no_signal(reason="Market neutral"):
         "parse_mode": "Markdown"
     }
     try:
-        requests.post(url, json=payload, timeout=10)
-        print("⚪ No signal update sent")
+        r = requests.post(url, json=payload, timeout=10)
+        result = r.json()
+        if result.get("ok"):
+            print("⚪ No signal update sent")
+            return True
+        else:
+            print(f"❌ Telegram error (send_no_signal): {result}")
+            return False
     except Exception as e:
         print(f"❌ Error: {e}")
+        return False
 
 
 if __name__ == "__main__":
