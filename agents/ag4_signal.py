@@ -67,7 +67,9 @@ def send_signal(data):
 ⚠️ Risk: 2% max per trade
 
 🔗 [Binance Join करो](https://www.binance.com/activity/referral-entry/CPA?ref=CPA_009BQG4BOM)
-📲 @GlobalTraderPavan
+
+📲 Telegram:
+https://t.me/GlobalTraderPavan
 ━━━━━━━━━━━━━━━━━━━━━
 """
 
