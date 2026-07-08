@@ -141,8 +141,11 @@ def run_system():
             "confidence": confidence,
             "stop_loss": risk["stop_loss"],
             "target1": risk["take_profit"],
-            "target2": round(risk["take_profit"] * 1.01, 2)
-        }
+            "target2": round(
+    risk["take_profit"] * (1.01 if direction == "LONG" else 0.99),
+    2
+)
+}
 
         if confidence >= CONFIDENCE_MINIMUM:
 
