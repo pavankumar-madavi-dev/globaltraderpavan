@@ -156,10 +156,10 @@ def run_system():
                 f"⏳ Rejected ({confidence}% < {CONFIDENCE_MINIMUM}%)"
             )
 
-    if not signal_sent:
-        send_no_signal(
-            "All filters not aligned"
-        )
+    # Neutral market message disabled
+    # if not signal_sent:
+    # send_no_signal("All filters not aligned")
+    
 
     print("\n✅ Scan Complete")
 
